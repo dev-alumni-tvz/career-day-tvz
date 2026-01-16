@@ -1,1 +1,1 @@
-# career-day-tvz
+This page is created for TVZ Carrer day event

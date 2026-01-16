@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="hr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Raspored predavanja - Srijeda 4.6.</title>
+    <link rel="icon" type="image/png" href="../icons/favicon 32x32.svg">
+    <link rel="stylesheet" href="../style/shedule.css">
+</head>
+
+<body>
+    <div class="page-wrapper">
+
+        <header class="header">
+            <h1>Career Talks – Raspored za srijedu 4.6.</h1>
+            <a href="../index.html#career-talks" class="back-link">← Natrag na raspored</a>
+        </header>
+
+        <div class="schedule-grid">
+            <div class="time-column">
+                <div class="time-slot">12:00</div>
+                <div class="time-slot">13:00</div>
+                <div class="time-slot">14:00</div>
+                <div class="time-slot">15:00</div>
+                <div class="time-slot">16:00</div>
+            </div>
+
+            <div class="events-column">
+                <!-- Event blocks aligned by top: and height: -->
+                <div class="session bird" data-modal="modal-bird" data-start="12:30" data-end="13:00">
+                    <time>12:30 - 13:00</time><strong class="session-company">BIRD</strong>Karijera van studentskih ugovora
+                </div>
+
+                <div class="session knez" data-modal="modal-knez" data-start="13:10" data-end="13:40">
+                    <time>13:10 - 13:40</time><strong class="session-company">KNEZ LJUBO</strong>Liebherr - stvaranje budućnosti
+                </div>
+
+                <div class="session koncar" data-modal="modal-koncar" data-start="13:50" data-end="14:20">
+                    <time>13:50 - 14:20</time><strong class="session-company">KONČAR</strong>Upoznaj KONČAR
+                </div>
+
+                <div class="session crossvallia" data-modal="modal-crossvallia" data-start="14:30" data-end="15:00">
+                    <time>14:30 - 15:00</time><strong class="session-company">CROSSVALLIA</strong>Od jednog poslužitelja do svjetske
+                    dominacije
+                </div>
+
+                <div class="session zaba" data-modal="modal-zaba" data-start="15:10" data-end="15:40">
+                    <time>15:10 - 15:40</time><strong class="session-company">ZABA</strong>Making IT in Zaba
+                </div>
+
+                <div class="session gradivo" data-modal="modal-gradivo" data-start="15:50" data-end="16:20">
+                    <time>15:50 - 16:20</time><strong class="session-company">GRADIVO.HR</strong>Student i direktor firme - milioni ili
+                    burnout?
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal popups -->
+        <div id="modal-bird" class="modal-overlay">
+            <div class="modal-content">
+                <div class="modal-header bird">
+                    <h2>Karijera van studentskih ugovora</h2>
+                    <span class="close">&times;</span>
+                </div>
+                <p><strong>Predavač:</strong> Vid Zavalić</p>
+                <p><strong>Pozicija:</strong> Junior Project Manager</p>
+                <p><strong>Tvrtka:</strong> BIRD</p>
+                <p><strong>Vrijeme:</strong> 12:30 - 13:00</p>
+            </div>
+        </div>
+
+        <div id="modal-knez" class="modal-overlay">
+            <div class="modal-content">
+                <div class="modal-header knez">
+                    <h2>Liebherr - stvaranje budućnosti</h2>
+                    <span class="close">&times;</span>
+                </div>
+                <p><strong>Predavač:</strong> Domagoj Knez</p>
+                <p><strong>Pozicija:</strong> CEO</p>
+                <p><strong>Tvrtka:</strong> KNEZ LJUBO</p>
+                <p><strong>Vrijeme:</strong> 13:10 - 13:40</p>
+            </div>
+        </div>
+
+        <div id="modal-koncar" class="modal-overlay">
+            <div class="modal-content">
+
+                <div class="modal-header koncar">
+                    <h2>Upoznaj KONČAR</h2>
+                    <span class="close">&times;</span>
+                </div>
+                <p><strong>Predavač:</strong> Mario Babić</p>
+                <p><strong>Pozicija:</strong> Head of Project Management Department</p>
+                <p><strong>Tvrtka:</strong> KONČAR</p>
+                <p><strong>Vrijeme:</strong> 13:50 - 14:20</p>
+            </div>
+        </div>
+
+        <div id="modal-crossvallia" class="modal-overlay">
+            <div class="modal-content">
+                <div class="modal-header crossvallia">
+                    <h2>Od jednog poslužitelja do svjetske dominacije</h2>
+                    <span class="close">&times;</span>
+                </div>
+                <p><strong>Predavač:</strong> Dino Serdarević</p>
+                <p><strong>Pozicija:</strong> GNU/Linux system administrator</p>
+                <p><strong>Tvrtka:</strong> CROSSVALLIA</p>
+                <p><strong>Vrijeme:</strong> 14:30 - 15:00</p>
+            </div>
+        </div>
+
+        <div id="modal-zaba" class="modal-overlay">
+            <div class="modal-content">
+                <div class="modal-header zaba">
+                    <h2>Making IT in Zaba</h2>
+                    <span class="close">&times;</span>
+                </div>
+                <p><strong>Predavači:</strong> Siniša Hajnal i Ivan Gudelj</p>
+                <p><strong>Pozicija:</strong> Team lead of RPA, AI and SharePoint / Head of Common Digital Solutions</p>
+                <p><strong>Tvrtka:</strong> ZABA</p>
+                <p><strong>Vrijeme:</strong> 15:10 - 15:40</p>
+            </div>
+        </div>
+
+        <div id="modal-gradivo" class="modal-overlay">
+            <div class="modal-content">
+                <div class="modal-header gradivo">
+                    <h2>Student i direktor firme - milioni ili burnout?</h2>
+                    <span class="close">&times;</span>
+                </div>
+
+                <p><strong>Predavač:</strong> Marko Sandalj</p>
+                <p><strong>Pozicija:</strong> CEO</p>
+                <p><strong>Tvrtka:</strong> GRADIVO.HR</p>
+                <p><strong>Vrijeme:</strong> 15:50 - 16:20</p>
+            </div>
+        </div>
+
+        <script src="../javascript/schedule.js"></script>
+
+    </div>
+</body>
+
+</html>

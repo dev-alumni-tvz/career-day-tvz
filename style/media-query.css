@@ -1,0 +1,475 @@
+@media (min-width: 2560px) {
+    :root {
+        --padding-side-main: 500px;
+        --padding-side-small: 800px;
+    }
+
+}
+
+@media (max-width: 1399px) {
+    :root {
+        --padding-side-main: 100px;
+        --padding-side-small: 200px;
+        --padding-top-bottom: 70px;
+    }
+
+    .job-oportunity .right-container {
+        margin-bottom: -140px;
+    }
+
+    .partners-container {
+        margin-top: 140px;
+    }
+}
+
+@media (max-width: 1199px) {
+    :root {
+        --padding-side-main: 80px;
+        --padding-side-small: 150px;
+
+        --padding-top-bottom: 60px;
+
+        --font-md: 16px;
+        --font-lg: 18px;
+        --font-xl: 20px;
+        --font-2xl: 28px;
+        --font-3xl: 32px;
+        --font-4xl: 40px;
+        --font-5xl: 48px;
+        --font-6xl: 56px;
+    }
+
+    .job-oportunity .right-container {
+        margin-bottom: -120px;
+    }
+
+    .partners-container {
+        margin-top: 120px;
+
+    }
+}
+
+@media (max-width: 991px) {
+    :root {
+        --padding-side-main: 20px;
+        --padding-side-small: 100px;
+
+        --padding-top-bottom: 50px;
+
+        --font-lg: 16px;
+        --font-xl: 18px;
+        --font-2xl: 24px;
+        --font-3xl: 28px;
+        --font-4xl: 32px;
+        --font-5xl: 40px;
+        --font-6xl: 50px;
+    }
+
+    .job-oportunity .right-container {
+        margin-bottom: -100px;
+    }
+
+    .partners-container {
+        margin-top: 30px;
+
+    }
+}
+
+@media (max-width: 850px) {
+
+    :root {
+        --padding-side-main: 50px;
+        --padding-side-small: 50px;
+
+        --padding-top-bottom: 40px;
+
+        --font-xl: 16px;
+        --font-2xl: 20px;
+        --font-3xl: 24px;
+        --font-4xl: 28px;
+        --font-5xl: 34px;
+        --font-6xl: 42px;
+    }
+
+    button {
+        padding: 3px 20px;
+    }
+
+    .countdown-container h3 {
+        font-size: 20px;
+    }
+
+    .countdown {
+        gap: 10px;
+    }
+
+    .time {
+        width: 80px;
+    }
+
+    .time span {
+        font-size: 50px;
+        max-width: 70px;
+    }
+
+    .dot {
+        font-size: 32px;
+        width: auto;
+        height: auto;
+        line-height: 60px;
+    }
+
+    .about-the-event .overlay .play-button {
+        width: 60px;
+        height: 40px;
+    }
+
+    .about-the-event .overlay .play-button img {
+        width: 15px;
+    }
+
+    .about-the-event .overlay .video-text {
+        padding: 10px 15px;
+    }
+
+    .info {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .info .left-container {
+        align-items: center;
+        justify-content: center;
+    }
+
+    .info .left-container h2,
+    .info .left-container p {
+        text-align: center;
+    }
+
+    .info .left-container p {
+        width: 80%;
+    }
+
+    .info .right-container {
+        align-items: center;
+        justify-content: center;
+        margin-bottom: -55px;
+    }
+
+    .info .right-container img {
+        width: 50%;
+    }
+
+    .what-to-expect {
+        flex-direction: column;
+        align-items: center;
+        padding: 60px 60px;
+        gap: 20px;
+    }
+
+    .what-to-expect-box {
+        padding: 20px 0;
+        max-width: 600px;
+        width: 100%;
+    }
+
+    .what-to-expect-box::after {
+        display: none;
+    }
+
+    .what-to-expect-box:not(:last-child) {
+        border-bottom: 1px solid var(--gray-light);
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+    }
+
+    .what-to-expect h2,
+    .what-to-expect .bold,
+    .what-to-expect .text {
+        text-align: center;
+    }
+
+    .companies-and-departments .stats {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .transport-info {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 0 0 180px 0;
+        background-position: bottom center;
+        background-size: 80%;
+    }
+
+    .transport-info .transport-text {
+        width: 100%;
+    }
+
+
+    .line-group {
+        gap: 10px;
+    }
+
+    .bus-schedule .tables {
+        flex-direction: column;
+        align-items: center;
+        gap: 32px;
+    }
+
+    .bus-schedule p {
+        width: 70%;
+        align-self: center;
+        text-align: center;
+    }
+
+    .table-wrapper {
+        overflow-x: auto;
+    }
+
+
+    .learn-from-best {
+        flex-direction: column;
+        align-items: start;
+        gap: 30px;
+    }
+
+    .learn-from-best .left-box {
+        align-items: center;
+        text-align: center;
+    }
+
+    .learn-from-best .right-box {
+        width: 100%;
+        aspect-ratio: 16/9;
+    }
+
+
+    .gallery .masonry {
+        columns: 3;
+        gap: 20px;
+    }
+
+    .masonry img {
+        margin-bottom: 20px;
+    }
+
+    .job-oportunity .wrapper-container {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        gap: 20px;
+    }
+
+    .job-oportunity .wrapper-container .box-container {
+        width: 100%;
+    }
+
+    .job-oportunity .right-container {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .job-oportunity .wrapper-container .right-container img {
+        width: 50%;
+    }
+
+    .platinum-partners{
+        flex-direction: column;
+    }
+
+    .partners-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px;
+    }
+
+
+    .top-section {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .top-section ul {
+        display: none;
+    }
+
+    .social-links {
+        margin-top: 16px;
+    }
+
+    .bottom-section {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+    }
+
+    .bottom-section .terms {
+        flex-direction: column;
+        gap: 8px;
+    }
+}
+
+
+@media (max-width: 500px) {
+    :root {
+        --padding-side-main: 30px;
+        --padding-side-small: 30px;
+
+
+        --font-2xl: 18px;
+        --font-3xl: 20px;
+        --font-4xl: 24px;
+        --font-5xl: 30px;
+        --font-6xl: 36px;
+    }
+
+    button {
+        padding: 3px 15px;
+    }
+
+    .countdown {
+        gap: 5px;
+    }
+
+    .time {
+        width: 60px;
+    }
+
+    .time span {
+        font-size: 24px;
+    }
+
+    .dot {
+        font-size: 20px;
+        line-height: 40px;
+    }
+
+
+    .about-the-event {
+        gap: 30px;
+    }
+
+    .about-the-event .bottom-container {
+        margin-bottom: -135px;
+    }
+
+    .about-the-event .overlay .play-button {
+        width: 40px;
+        height: 30px;
+    }
+
+    .about-the-event .overlay .play-button img {
+        width: 10px;
+    }
+
+    .about-the-event .overlay .video-text {
+        padding: 5px 10px;
+    }
+
+
+    .what-to-expect {
+        padding: 40px 20px;
+    }
+
+
+
+    .transport-info {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 0 0 80px 0;
+        background-position: bottom center;
+        background-size: 100%;
+    }
+
+    .bus-schedule p {
+        width: 100%;
+        align-self: center;
+        text-align: center;
+    }
+
+    .gallery .masonry {
+        columns: 2;
+        gap: 10px;
+    }
+
+    .masonry img {
+        margin-bottom: 10px;
+    }
+
+
+    .job-oportunity .wrapper-container {
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        padding: var(--padding-top-bottom) 0;
+    }
+
+    .job-oportunity .box-container {
+        padding: 0 15px;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .job-oportunity .wrapper-container .box-container {
+        width: 100%;
+    }
+
+    .job-oportunity .right-container {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .job-oportunity .wrapper-container .right-container img {
+        width: 50%;
+    }
+
+    .partners-container {
+        margin-top: 40px;
+
+    }
+
+    .partners-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+
+    footer {
+        padding: 60px var(--padding-side-main);
+    }
+
+    .top-section {
+        gap: 10px;
+    }
+
+    .top-section .logo img {
+        width: 120px;
+    }
+
+    .social-links button {
+        width: 36px;
+        height: 36px;
+    }
+
+    .social-links button img {
+        width: 18px;
+        height: 18px;
+    }
+
+    .bottom-section {
+        gap: 5px;
+        font-size: 14px;
+    }
+
+}
