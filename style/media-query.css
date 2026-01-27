@@ -91,6 +91,10 @@
         --font-6xl: 42px;
     }
 
+    .header .hero img { 
+        height: auto;
+    }
+
     button {
         padding: 3px 20px;
     }
@@ -280,7 +284,7 @@
         width: 50%;
     }
 
-    .platinum-partners{
+    .platinum-partners {
         flex-direction: column;
     }
 
