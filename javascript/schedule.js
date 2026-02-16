@@ -40,7 +40,7 @@ function positionSessions() {
     const totalMinutes = scheduleEnd - scheduleStart;
     const container = document.querySelector('.events-column');
     const containerHeight = container.offsetHeight;
-    
+
     const pixelsPerMinute = containerHeight / totalMinutes;
 
     document.querySelectorAll('.session').forEach(session => {
