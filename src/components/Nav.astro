@@ -1,0 +1,53 @@
+---
+import { Image } from 'astro:assets';
+import lumaIco from '../assets/images/social/luma-ico.svg';
+import instagramIco from '../assets/images/social/instagram-ico.svg';
+import linkedinIco from '../assets/images/social/linkedin-ico.svg';
+---
+
+<nav
+	class="main-nav"
+	id="main-nav"
+>
+	<div class="social-links">
+		<a
+			href="https://lu.ma/"
+			target="_blank"
+			rel="noopener"
+			aria-label="Lu.ma"
+		>
+			<Image
+				src={lumaIco}
+				alt="Lu.ma ikona"
+				width={20}
+				height={20}
+			/>
+		</a>
+		<a
+			href="https://www.instagram.com/tvzcareerday/"
+			target="_blank"
+			rel="noopener"
+			aria-label="Instagram"
+		>
+			<Image
+				src={instagramIco}
+				alt="Instagram ikona"
+				width={20}
+				height={20}
+			/>
+		</a>
+		<a
+			href="https://www.linkedin.com/company/tvz-career-day/"
+			target="_blank"
+			rel="noopener"
+			aria-label="LinkedIn"
+		>
+			<Image
+				src={linkedinIco}
+				alt="LinkedIn ikona"
+				width={20}
+				height={20}
+			/>
+		</a>
+	</div>
+</nav>
