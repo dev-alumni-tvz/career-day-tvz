@@ -1,0 +1,27 @@
+---
+import { Image } from 'astro:assets';
+import scheduleImg from '../assets/images/schedule-img.png';
+---
+
+<section
+	class="learn-from-best"
+	id="career-talks"
+>
+	<div class="left-box">
+		<h2>Nauči od onih koji <br />znaju... <span>CareerTalks</span></h2>
+		<p>
+			Uhvati priliku čuti kako izgleda stvaran poslovni svijet - bez filtera. Career Talks razgovori su s ljudima koji su prošli put kojim ti tek krećeš. Postavi pitanje, poslušaj
+			savjet i pronađi smjer koji te zbilja zanima.
+		</p>
+	</div>
+	<div class="right-box">
+		<a href="/schedule/schedule.html">
+			<Image
+				src={scheduleImg}
+				alt="schedule"
+			/>
+			<div class="overlay">Pogledaj raspored!</div>
+		</a>
+	</div>
+</section>
+

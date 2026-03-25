@@ -1,0 +1,76 @@
+---
+const line1 = [
+	{ stop1: '10:30', stop2: '11:00' },
+	{ stop1: '11:30', stop2: '12:00' },
+	{ stop1: '12:30', stop2: '13:00' },
+	{ stop1: '13:30', stop2: '14:00' },
+	{ stop1: '14:30', stop2: '15:00' },
+	{ stop1: '15:30', stop2: '16:00' },
+	{ stop1: '16:30', stop2: '17:00' },
+];
+
+const line2 = [
+	{ stop1: '10:30', stop2: '11:00' },
+	{ stop1: '11:30', stop2: '12:00' },
+	{ stop1: '12:30', stop2: '13:00' },
+	{ stop1: '13:30', stop2: '14:00' },
+	{ stop1: '14:30', stop2: '15:00' },
+	{ stop1: '15:30', stop2: '16:10' },
+	{ stop1: '16:40', stop2: '17:20' },
+];
+---
+
+<section class="bus-schedule">
+	<div class="tables">
+		<div class="line-group">
+			<h2>Vozni red za Liniju 1</h2>
+			<div class="table-wrapper">
+				<table>
+					<thead>
+						<tr>
+							<th>TVZ ELO ODJEL<br /><small>stanica Voltino<br /><span>Konavoska ulica 2</span></small></th>
+							<th>TVZ GRO ODJEL<br /><small>stanica Građevinska škola<br /><span>Većeslava Holjevca 15</span></small></th>
+						</tr>
+					</thead>
+					<tbody>
+						{
+							line1.map((row) => (
+								<tr>
+									<td>{row.stop1}</td>
+									<td>{row.stop2}</td>
+								</tr>
+							))
+						}
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+		<div class="line-group">
+			<h2>Vozni red za Liniju 2</h2>
+			<div class="table-wrapper">
+				<table>
+					<thead>
+						<tr>
+							<th>TVZ INRO ODJEL<br /><small>stanica Kampus Borongaj<br /><span>Borongajska cesta 83E</span></small></th>
+							<th>HoB Career Day<br /><small>stanica Vrbik<br /><span>Josipa Marohnića 1</span></small></th>
+						</tr>
+					</thead>
+					<tbody>
+						{
+							line2.map((row) => (
+								<tr>
+									<td>{row.stop1}</td>
+									<td>{row.stop2}</td>
+								</tr>
+							))
+						}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	<p>
+		Detaljnije informacije o autobusnim linijama i voznom redu možeš pronaći u PDF-u koji se nalazi na <a href="/assets/TVZCareerDay_raspored.pdf">linku</a>.
+	</p>
+</section>

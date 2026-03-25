@@ -1,0 +1,65 @@
+---
+import { Image } from 'astro:assets';
+import logo from '../assets/images/Logo.svg';
+import lumaIco from '../assets/images/social/luma-ico.svg';
+import instagramIco from '../assets/images/social/instagram-ico.svg';
+import linkedinIco from '../assets/images/social/linkedin-ico.svg';
+---
+
+<footer>
+	<nav
+		class="top-section"
+		role="navigation"
+		aria-label="Footer navigacija"
+	>
+		<div class="logo">
+			<Image
+				src={logo}
+				alt="TVZ CareerDay logo"
+			/>
+		</div>
+		<div class="social-links">
+			<a
+				href="https://lu.ma/"
+				target="_blank"
+				rel="noopener"
+				aria-label="Lu.ma"
+			>
+				<Image
+					src={lumaIco}
+					alt="Lu.ma ikona"
+				/>
+			</a>
+			<a
+				href="https://www.instagram.com/tvzcareerday/"
+				target="_blank"
+				rel="noopener"
+				aria-label="Instagram"
+			>
+				<Image
+					src={instagramIco}
+					alt="Instagram ikona"
+				/>
+			</a>
+			<a
+				href="https://www.linkedin.com/company/tvz-career-day/"
+				target="_blank"
+				rel="noopener"
+				aria-label="LinkedIn"
+			>
+				<Image
+					src={linkedinIco}
+					alt="LinkedIn ikona"
+				/>
+			</a>
+		</div>
+	</nav>
+
+	<div class="bottom-section">
+		<p>Copyright © TVZ CareerDay All Rights Reserved</p>
+		<div class="terms">
+			<p>Terms of Use</p>
+			<p>Privacy Policy</p>
+		</div>
+	</div>
+</footer>

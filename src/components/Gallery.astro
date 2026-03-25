@@ -1,3 +1,32 @@
 ---
+import { Image } from 'astro:assets';
 
+const images = await Promise.all(
+	Array.from({ length: 12 }, (_, i) => i + 1).map(async (i) => {
+		const img = await import(`../assets/images/gallery/${i}.png`);
+		return { src: img.default, alt: `Slika za galeriju ${i}` };
+	}),
+);
 ---
+
+<section class="gallery">
+	<div class="text-block">
+		<h2>TVZ CareerDay <span>2024</span></h2>
+		<p>Ako ti se sviđa atmosfera na fotkama, tek će ti se svidjeti kako izgleda uživo. Pridruži nam se i budi dio priče!</p>
+	</div>
+
+	<div class="masonry">
+		{
+			images.map(({ src, alt }) => (
+				<Image
+					src={src}
+					alt={alt}
+				/>
+			))
+		}
+	</div>
+
+	<a href="https://careerdaytvz.pixieset.com/careerdaytvz2024/">
+		<button>Vidi još+</button>
+	</a>
+</section>
