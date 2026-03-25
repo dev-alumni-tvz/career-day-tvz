@@ -1,1 +1,0 @@
-This page is created for TVZ Carrer day 2026 event
