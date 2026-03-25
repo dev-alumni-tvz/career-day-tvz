@@ -1,3 +1,36 @@
 ---
-
+import { Image } from 'astro:assets';
+import playButton from '../assets/images/play-button.svg';
 ---
+
+<section class="about-the-event">
+	<div class="top-container">
+		<h2>O događaju</h2>
+		<p>
+			Tehničko veleučilište u Zagrebu okuplja više od 4600 studenata budućih stručnjaka informatike, računarstva, elektrotehnike, strojarstva, mehatronike i graditeljstva što čini
+			ovaj događaj idealnim za sklapanje novih poznanstava, prijateljstava i poslova diljem svih industrija.
+		</p>
+	</div>
+
+	<div class="bottom-container">
+		<a
+			class="video-link-wrapper"
+			href="https://youtu.be/7S4k9yReGgE"
+			target="_blank"
+			rel="noopener"
+		>
+			<div class="overlay">
+				<div class="play-button">
+					<Image
+						src={playButton}
+						alt="Play video"
+					/>
+				</div>
+				<div class="video-text">
+					<small>KAKO NAM JE BILO PRIJE DVIJE GODINE?</small>
+					<p>TVZ CAREERDAY 2024</p>
+				</div>
+			</div>
+		</a>
+	</div>
+</section>

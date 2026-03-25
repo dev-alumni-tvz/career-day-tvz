@@ -1,3 +1,20 @@
 ---
-
+import { Image } from 'astro:assets';
+import likImage from '../assets/images/lik2221 1.svg';
 ---
+
+<section class="info">
+	<div class="left-container">
+		<h2><span>TVZ CareerDay 2026</span> je pred vratima!</h2>
+		<p>
+			Da bi tvoji prvi koraci u svijetu poslovanja bili sigurni i uspješni, ne smiješ propustiti TVZ Career Day 2026! Naš događaj okuplja vrhunske poslodavce, stručnjake i studente,
+			s ciljem stvaranja prilika za zapošljavanje i razvoj karijere.
+		</p>
+	</div>
+	<div class="right-container">
+		<Image
+			src={likImage}
+			alt="Ilustracija osobe"
+		/>
+	</div>
+</section>
