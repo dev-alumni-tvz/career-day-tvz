@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Nav from '../components/Nav.astro';
 import Hero from '../components/Hero.astro';
 import Countdown from '../components/Countdown.astro';
 import About from '../components/About.astro';
@@ -17,7 +16,6 @@ import Footer from '../components/Footer.astro';
 ---
 
 <BaseLayout>
-	<Nav />
 	<div class="hero-wrapper">
 		<Hero />
 	</div>
@@ -26,9 +24,11 @@ import Footer from '../components/Footer.astro';
 	<Info />
 	<WhatToExpect />
 	<Stats />
+    <section style="width: 100%; height: 763px;"></section>
+    <!-- 
 	<Transport />
-	<BusSchedule />
-	<CareerTalks />
+	<BusSchedule /> 
+	<CareerTalks /> -->
 	<Gallery />
 	<JobOpportunity />
 	<Partners />

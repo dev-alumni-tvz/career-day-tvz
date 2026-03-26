@@ -1,14 +1,17 @@
 ---
 import { Image } from 'astro:assets';
+import Nav from '../components/Nav.astro';
 import heroImage from '../assets/images/career-2026-fix.svg';
+import lumaStar from '../assets/images/lumaStar.svg';
 ---
 
 <section class="header">
+	<Nav />
 	<!-- Traveling blobs -->
-	<div class="blob blob-1"></div>
+	<!-- <div class="blob blob-1"></div>
 	<div class="blob blob-2"></div>
 	<div class="blob blob-3"></div>
-	<div class="blob blob-4"></div>
+	<div class="blob blob-4"></div> -->
 
 	<div class="hero">
 		<Image
@@ -19,11 +22,20 @@ import heroImage from '../assets/images/career-2026-fix.svg';
 
 		<a
 			href="mailto:careerday@tvz.hr?subject=Partnerstvo%20Career%20Day"
-			class="hero-animate hero-animate--delay-1"
+			class="hero-animate"
 		>
-			<button>Postani partner</button>
+			<button>Prijavi se!</button>
 		</a>
-		<p class="hero-animate hero-animate--delay-2">Vise informacija za TVZ CareerDay 2026 dolazi uskoro!</p>
+		<p class="hero-open hero-animate">
+			<Image
+				src={lumaStar}
+				alt="star icon"
+				width={15}
+				height={15}
+				class="hero-luma-icon"
+			/>
+			Otvoreno za <strong>SVE</strong> studente grada Zagreba
+		</p>
 	</div>
 
 	<div class="scroll-position">

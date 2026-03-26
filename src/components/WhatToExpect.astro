@@ -1,23 +1,433 @@
 ---
-// No images in this section
+import { Image } from 'astro:assets';
+import imgMerch from '../assets/images/card-wheel/second-wheel.png';
+import imgProfilna from '../assets/images/card-wheel/first-wheel.png';
+import imgRacing from '../assets/images/card-wheel/third-wheel.png';
+import imgCrowd from '../assets/images/card-wheel/fift-wheel.png';
+import imgBasket from '../assets/images/card-wheel/forth-wheel.png';
 ---
 
 <section class="what-to-expect">
-	<div class="what-to-expect-box">
-		<h2>TVZ MERCH</h2>
-		<p class="bold">KUTAK</p>
-		<p class="text">Uključi se u našu tombolu i osvoji TVZ merch! Dobitnike čekaju majice, hoodice, kape i još mnogo cool stvari.</p>
+	<!-- Top text row -->
+	<div class="wte-text-row">
+		<div class="wte-text-box">
+			<h2>TVZ MERCH</h2>
+			<p class="bold">KUTAK</p>
+			<p class="text">Uključi se u našu tombolu i osvoji TVZ merch! Dobitnike čekaju majice, hoodice, kape i još mnogo cool stvari.</p>
+		</div>
+
+		<div class="wte-divider"></div>
+
+		<div class="wte-text-box">
+			<h2>PROFILNA 2.0</h2>
+			<p class="bold">FOTKANJE ZA CV/LINKEDIN</p>
+			<p class="text">Profesionalni portreti za tvoj LinkedIn ili CV - besplatno! Stani pred objektiv i napravi prvi dojam koji se pamti.</p>
+		</div>
+
+		<div class="wte-divider"></div>
+
+		<div class="wte-text-box">
+			<h2>GAME ON</h2>
+			<p class="bold">SIM-RACING ZONA</p>
+			<p class="text">Uskoči u racing simulator, pokaži što znaš i osvoji vrijedne nagrade! Idealna prilika za odmor i druženje.</p>
+		</div>
 	</div>
 
-	<div class="what-to-expect-box">
-		<h2>PROFILNA 2.0</h2>
-		<p class="bold">FOTKANJE ZA CV/LINKEDIN</p>
-		<p class="text">Profesionalni portreti za tvoj LinkedIn ili CV - besplatno! Stani pred objektiv i napravi prvi dojam koji se pamti.</p>
-	</div>
+	<!-- Cards fan -->
+	<div class="wte-cards-wrapper">
+		<div
+			class="wte-cards"
+			id="wte-cards"
+		>
+			<div
+				class="wte-card wte-card--left"
+				data-index="0"
+			>
+				<span class="wte-badge wte-badge--left">CV kutak</span>
+				<Image
+					src={imgProfilna}
+					alt="CV Kutak - profilna fotografija"
+				/>
+			</div>
 
-	<div class="what-to-expect-box">
-		<h2>GAME ON</h2>
-		<p class="bold">SIM-RACING ZONA</p>
-		<p class="text">Uskoči u racing simulator, pokaži što znaš i osvoji vrijedne nagrade! Idealna prilika za odmor i druženje.</p>
+			<div
+				class="wte-card wte-card--left-mid"
+				data-index="1"
+			>
+				<span class="wte-badge wte-badge--left">TVZ Merch</span>
+				<Image
+					src={imgMerch}
+					alt="TVZ Merch kutak"
+				/>
+			</div>
+
+			<div
+				class="wte-card wte-card--center"
+				data-index="2"
+			>
+				<Image
+					src={imgRacing}
+					alt="Sim-racing zona"
+				/>
+				<span class="wte-badge wte-badge--center">Sim Racing</span>
+			</div>
+
+			<div
+				class="wte-card wte-card--right-mid"
+				data-index="3"
+			>
+				<span class="wte-badge wte-badge--right">Pogodi i osvoji</span>
+				<Image
+					src={imgBasket}
+					alt="Pogodi i osvoji nagradu"
+				/>
+			</div>
+
+			<div
+				class="wte-card wte-card--right"
+				data-index="4"
+			>
+				<span class="wte-badge wte-badge--right">Istraži event</span>
+				<Image
+					src={imgCrowd}
+					alt="Događaj"
+				/>
+			</div>
+		</div>
 	</div>
 </section>
+
+<style>
+	.what-to-expect {
+		display: flex;
+		flex-direction: column;
+		padding: var(--padding-top-bottom) var(--padding-side-main) 0 var(--padding-side-main);
+		background-color: var(--white);
+		gap: 60px;
+		border-top: 2px solid var(--primary-yellow);
+	}
+
+	/* === Text row === */
+	.wte-text-row {
+		display: flex;
+		align-items: flex-start;
+		justify-content: space-between;
+	}
+
+	.wte-text-box {
+		flex: 1;
+		padding: 0 24px;
+	}
+
+	.wte-text-box:first-child {
+		padding-left: 0;
+	}
+	.wte-text-box:last-child {
+		padding-right: 0;
+	}
+
+	.wte-divider {
+		width: 2px;
+		align-self: stretch;
+		background: #ebebeb;
+		transform: skew(-15deg);
+		flex-shrink: 0;
+	}
+
+	.what-to-expect h2 {
+		font-family: var(--font-main);
+		font-size: var(--font-4xl);
+		font-weight: 700;
+		color: var(--primary-yellow);
+		margin-bottom: 8px;
+	}
+
+	.what-to-expect .bold {
+		font-family: var(--font-main);
+		font-weight: 600;
+		font-size: var(--font-md);
+		text-transform: uppercase;
+		color: var(--black);
+		margin-bottom: 12px;
+	}
+
+	.what-to-expect .text {
+		font-family: var(--font-small);
+		font-size: var(--font-base);
+		color: var(--black);
+		line-height: 1.6;
+	}
+
+	/* === Cards wrapper — clips overflow, adds padding so cards breathe === */
+	.wte-cards-wrapper {
+		width: 100%;
+		padding: 40px 0 0 0;
+		margin-bottom: -15px;
+	}
+
+	/* === Fan container — centered === */
+	.wte-cards {
+		display: flex;
+		align-items: flex-end;
+		justify-content: center;
+		position: relative;
+	}
+
+	/* === Individual cards === */
+	.wte-card {
+		position: relative;
+		border-radius: 28px;
+		overflow: hidden;
+		flex-shrink: 0;
+		cursor: pointer;
+		transition:
+			transform 0.45s cubic-bezier(0.34, 1.3, 0.64, 1),
+			box-shadow 0.45s ease,
+			opacity 0.45s ease,
+			filter 0.45s ease;
+		will-change: transform;
+		box-shadow: 0 8px 40px rgba(0, 0, 0, 0.18);
+	}
+
+	.wte-card img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		display: block;
+		pointer-events: none;
+	}
+
+	/* Base sizes and rotations */
+	.wte-card--left {
+		width: 370px;
+		height: 470px;
+		transform: rotate(-10deg) translate(180px, 180px);
+		z-index: 1;
+	}
+
+	.wte-card--left-mid {
+		width: 370px;
+		height: 470px;
+		transform: rotate(-6deg) translate(80px, 80px);
+		z-index: 2;
+	}
+
+	.wte-card--center {
+		width: 370px;
+		height: 470px;
+		transform: rotate(0deg) translate(0px, 20px);
+		z-index: 3;
+	}
+
+	.wte-card--right-mid {
+		width: 370px;
+		height: 470px;
+		transform: rotate(6deg) translate(-80px, 80px);
+		z-index: 2;
+	}
+
+	.wte-card--right {
+		width: 370px;
+		height: 470px;
+		transform: rotate(10deg) translate(-180px, 180px);
+		z-index: 1;
+	}
+
+	/* === Badge === */
+	.wte-badge {
+		position: absolute;
+		top: 16px;
+		z-index: 10;
+		background: var(--primary-yellow);
+		color: var(--black);
+		font-family: var(--font-main);
+		font-size: var(--font-sm);
+		font-weight: 700;
+		padding: 5px 14px;
+		border-radius: 20px;
+	}
+
+	.wte-badge--left {
+		left: 16px;
+	}
+	.wte-badge--right {
+		right: 16px;
+	}
+
+	.wte-badge--center {
+		left: 50%;
+		transform: translateX(-50%);
+	}
+
+	/* === Hover: hovered card lifts, preserving its rotation === */
+	.wte-card--left.is-hovered {
+		transform: rotate(-14deg) translate(100px, 160px) scale(1.04);
+		z-index: 10;
+		box-shadow: 0 28px 70px rgba(0, 0, 0, 0.35);
+		filter: brightness(1.08);
+		opacity: 1;
+	}
+	.wte-card--left-mid.is-hovered {
+		transform: rotate(-6deg) translate(60px, 40px) scale(1.04);
+		z-index: 10;
+		box-shadow: 0 28px 70px rgba(0, 0, 0, 0.35);
+		filter: brightness(1.08);
+		opacity: 1;
+	}
+	.wte-card--center.is-hovered {
+		transform: rotate(0deg) translate(0px, -10px) scale(1.04);
+		z-index: 10;
+		box-shadow: 0 28px 70px rgba(0, 0, 0, 0.35);
+		filter: brightness(1.08);
+		opacity: 1;
+	}
+	.wte-card--right-mid.is-hovered {
+		transform: rotate(6deg) translate(-60px, 40px) scale(1.04);
+		z-index: 10;
+		box-shadow: 0 28px 70px rgba(0, 0, 0, 0.35);
+		filter: brightness(1.08);
+		opacity: 1;
+	}
+	.wte-card--right.is-hovered {
+		transform: rotate(14deg) translate(-100px, 160px) scale(1.04);
+		z-index: 10;
+		box-shadow: 0 28px 70px rgba(0, 0, 0, 0.35);
+		filter: brightness(1.08);
+		opacity: 1;
+	}
+
+	/* Push LEFT — cards to the left of hovered move further left */
+	.wte-card--left.push-left {
+		transform: rotate(-14deg) translate(100px, 140px);
+		box-shadow: none;
+	}
+	.wte-card--left-mid.push-left {
+		transform: rotate(-6deg) translate(-10px, 50px);
+		box-shadow: none;
+	}
+	.wte-card--center.push-left {
+		transform: rotate(0deg) translate(-30px, 0px);
+		box-shadow: none;
+	}
+	.wte-card--right-mid.push-left {
+		transform: rotate(6deg) translate(-60px, 50px);
+		box-shadow: none;
+	}
+	.wte-card--right.push-left {
+		transform: rotate(14deg) translate(-100px, 140px);
+		box-shadow: none;
+	}
+
+	/* === Push RIGHT — same dim effect === */
+	.wte-card--left.push-right {
+		transform: rotate(-14deg) translate(100px, 140px);
+		box-shadow: none;
+	}
+	.wte-card--left-mid.push-right {
+		transform: rotate(-6deg) translate(60px, 50px);
+		box-shadow: none;
+	}
+	.wte-card--center.push-right {
+		transform: rotate(0deg) translate(30px, 0px);
+		box-shadow: none;
+	}
+	.wte-card--right-mid.push-right {
+		transform: rotate(6deg) translate(10px, 50px);
+		box-shadow: none;
+	}
+	.wte-card--right.push-right {
+		transform: rotate(14deg) translate(-100px, 140px);
+		box-shadow: none;
+	}
+
+	/* === Responsive === */
+	@media (max-width: 1199px) {
+		.wte-card--left {
+			width: 220px;
+			height: 320px;
+		}
+		.wte-card--left-mid {
+			width: 250px;
+			height: 350px;
+		}
+		.wte-card--center {
+			width: 290px;
+			height: 390px;
+		}
+		.wte-card--right-mid {
+			width: 250px;
+			height: 350px;
+		}
+		.wte-card--right {
+			width: 220px;
+			height: 320px;
+		}
+		.wte-cards {
+			height: 430px;
+		}
+	}
+
+	@media (max-width: 850px) {
+		.wte-text-row {
+			flex-direction: column;
+			gap: 30px;
+		}
+		.wte-divider {
+			display: none;
+		}
+		.wte-text-box {
+			padding: 0;
+		}
+
+		.wte-card--left,
+		.wte-card--right {
+			display: none;
+		}
+
+		.wte-cards {
+			height: 380px;
+		}
+	}
+
+	@media (max-width: 500px) {
+		.wte-card--left-mid,
+		.wte-card--right-mid {
+			display: none;
+		}
+
+		.wte-card--center {
+			width: 80%;
+			height: 320px;
+			transform: none;
+		}
+
+		.wte-cards {
+			height: 320px;
+		}
+	}
+</style>
+
+<script>
+	const cards = document.querySelectorAll<HTMLElement>('.wte-card');
+
+	cards.forEach((card, i) => {
+		card.addEventListener('mouseenter', () => {
+			cards.forEach((other, j) => {
+				other.classList.remove('is-hovered', 'push-left', 'push-right');
+				if (j === i) {
+					other.classList.add('is-hovered');
+				} else if (j < i) {
+					other.classList.add('push-left');
+				} else {
+					other.classList.add('push-right');
+				}
+			});
+		});
+
+		card.addEventListener('mouseleave', () => {
+			cards.forEach((other) => {
+				other.classList.remove('is-hovered', 'push-left', 'push-right');
+			});
+		});
+	});
+</script>

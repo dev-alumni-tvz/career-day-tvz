@@ -23,7 +23,7 @@
 
     /* Font family */
     --font-main: 'Montserrat', sans-serif;
-    --font-small: 'Inter', sans-serif;
+    --font-small: 'Manrope', sans-serif;
 
     /* Font size */
     --font-sm: 14px;
@@ -52,7 +52,7 @@ body {
     font-family: var(--font-main);
     scroll-behavior: smooth;
     min-height: 100vh;
-    overflow-x: hidden;
+    overflow-x: clip;
 }
 
 .main-container {
@@ -96,7 +96,9 @@ button:hover {
     position: sticky;
     top: 0;
     z-index: 0;
-    background-color: var(--black);
+    background: url("../assets/bg-images/bg-hero.png") no-repeat center center/cover;
+    /* 
+    background-color: var(--black); */
     overflow: hidden;
     width: 100%;
     height: 100vh;
@@ -109,35 +111,10 @@ button:hover {
 
 /* === Social Nav === */
 .main-nav {
-    position: fixed;
+    position: absolute;
     top: 32px;
-    right: var(--padding-side-main);
-    z-index: 1;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-}
-
-.social-links {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.social-links a {
-    width: 42px;
-    height: 42px;
-    border: 2px solid var(--primary-yellow);
-    border-radius: 50%;
-    background: transparent;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background var(--classic-transition);
-}
-
-.social-links a:hover {
-    background: var(--primary-yellow);
+    right: 50px;
+    z-index: 10;
 }
 
 /* === Blobs === */
@@ -325,9 +302,31 @@ button:hover {
     padding: 120px 0;
 }
 
-.header .hero img {
+.header .hero .date-and-place {
     width: 100%;
     height: 430px;
+}
+
+.hero-open {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--white);
+    font-size: var(--font-sm);
+    font-weight: 300;
+    opacity: 0.7;
+    letter-spacing: 0.02em;
+}
+
+.hero-open .hero-luma-icon {
+    display: inline-block;
+    vertical-align: middle;
+    transform: translate(7px, -12px);
+}
+
+.hero-open strong {
+    color: var(--primary-yellow);
+    font-weight: 700;
 }
 
 .header p {
@@ -398,14 +397,6 @@ button:hover {
     animation: fadeUp 0.7s ease forwards;
 }
 
-.hero-animate--delay-1 {
-    animation-delay: 0.15s;
-}
-
-.hero-animate--delay-2 {
-    animation-delay: 0.3s;
-}
-
 @keyframes fadeUp {
     to {
         opacity: 1;
@@ -429,7 +420,7 @@ button:hover {
 .countdown-container,
 .info,
 .what-to-expect,
-.companies-and-departments,
+.stats-container,
 .transport-info,
 .bus-schedule,
 .learn-from-best,
@@ -623,7 +614,8 @@ footer {
 .info {
     position: relative;
     overflow: hidden;
-    background: var(--black);
+    background: url("../assets/bg-images/BG-Glow-effect.png") no-repeat center center/cover;
+    /* background: var(--black); */
     color: var(--white);
     width: 100%;
     height: 100%;
@@ -874,17 +866,17 @@ footer {
 
 /* === Companies and Departments === */
 
-.companies-and-departments {
+.stats-container {
     padding: var(--padding-top-bottom) var(--padding-side-small);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 50px;
-    background-color: var(--black);
+    background: url("../assets/bg-images/BG-Glow-effect-2.png") no-repeat center center/cover;
 }
 
-.companies-and-departments .title {
+.stats-container .title {
     color: var(--white);
     font-size: var(--font-xl);
     font-weight: 700;
@@ -1199,6 +1191,14 @@ footer {
     align-items: center;
     justify-content: center;
     max-width: 530px;
+    gap: 32px;
+}
+
+.gallery .text-block .text-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     gap: 16px;
 }
 
@@ -1208,6 +1208,7 @@ footer {
     line-height: 110.00000000000001%;
     letter-spacing: 0.02em;
     text-align: center;
+
 }
 
 .text-block h2 span {
@@ -1216,6 +1217,18 @@ footer {
 
 .gallery p {
     text-align: center;
+}
+
+.gallery a {
+    text-decoration: none;
+}
+
+.gallery .gallery-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 5px 20px 5px 30px;
 }
 
 .gallery .masonry {
@@ -1228,7 +1241,36 @@ footer {
     margin-bottom: 30px;
 }
 
+.last-year {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 5px 20px 5px 30px;
 
+}
+
+.gallery-button.year-23,
+.gallery-button.year-24 {
+    color: var(--primary-yellow);
+}
+
+
+.gallery-button.year-23{
+    background-color: rgba(234, 195, 27, 0.4);
+}
+
+.gallery-button.year-24{
+    background-color: rgba(234, 195, 27, 0.5);
+}
+
+.last-year-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+}
 
 
 

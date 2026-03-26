@@ -91,7 +91,7 @@
         --font-6xl: 42px;
     }
 
-    .header .hero img {
+    .header .hero .date-and-place {
         height: auto;
     }
 
@@ -338,6 +338,11 @@
         padding: 3px 15px;
     }
 
+    .main-nav{
+        top: 5px;
+        right: 10px;
+    }
+
     .countdown {
         gap: 5px;
     }
@@ -462,13 +467,13 @@
     }
 
     .social-links button {
-        width: 36px;
-        height: 36px;
+        width: 20px;
+        height: 20px;
     }
 
     .social-links button img {
-        width: 18px;
-        height: 18px;
+        width: 10px;
+        height: 10px;
     }
 
     .bottom-section {
