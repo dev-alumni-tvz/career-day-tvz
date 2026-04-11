@@ -6,7 +6,7 @@
 
 }
 
-@media (max-width: 1399px) {
+@media (max-width: 1441px) {
     :root {
         --padding-side-main: 100px;
         --padding-side-small: 200px;
@@ -165,34 +165,6 @@
         width: 50%;
     }
 
-    .what-to-expect {
-        flex-direction: column;
-        align-items: center;
-        padding: 60px 60px;
-        gap: 20px;
-    }
-
-    .what-to-expect-box {
-        padding: 20px 0;
-        max-width: 600px;
-        width: 100%;
-    }
-
-    .what-to-expect-box::after {
-        display: none;
-    }
-
-    .what-to-expect-box:not(:last-child) {
-        border-bottom: 1px solid var(--gray-light);
-        margin-bottom: 20px;
-        padding-bottom: 20px;
-    }
-
-    .what-to-expect h2,
-    .what-to-expect .bold,
-    .what-to-expect .text {
-        text-align: center;
-    }
 
     .companies-and-departments .stats {
         flex-direction: column;
@@ -338,7 +310,7 @@
         padding: 3px 15px;
     }
 
-    .main-nav{
+    .main-nav {
         top: 5px;
         right: 10px;
     }
@@ -382,12 +354,18 @@
         padding: 5px 10px;
     }
 
+    .stats-container {
+        gap: 30px;
 
-    .what-to-expect {
-        padding: 40px 20px;
+        .stats {
+            flex-direction: column;
+            gap: 20px;
+
+            .stat-box {
+                gap: 10px;
+            }
+        }
     }
-
-
 
     .transport-info {
         flex-direction: column;

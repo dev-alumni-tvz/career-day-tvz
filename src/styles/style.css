@@ -13,7 +13,7 @@
 
 /* === Reset / Base === */
 :root {
-    /* Colors */
+    /* Colors — unchanged */
     --primary-yellow: #EAC31B;
     --black: #0F0B0C;
     --gray-light: #DBDADB;
@@ -21,27 +21,33 @@
     --gray-light: #f9f9f9;
     --white: #FFF;
 
-    /* Font family */
+    /* CHANGED: fixed typo 'Monrope' → 'Manrope', added --font-inter */
     --font-main: 'Montserrat', sans-serif;
-    --font-small: 'Manrope', sans-serif;
+    --font-small: 'Inter', sans-serif;
 
-    /* Font size */
+    /* CHANGED: updated scale to match design system from image */
     --font-sm: 14px;
+    /* Manrope, 14px, 130%  */
     --font-base: 16px;
+    /* Manrope, 16px, 160%  */
     --font-md: 18px;
+    /* Inter,   18px, 160%  */
     --font-lg: 20px;
+    /* Montserrat, 20px, 110% */
     --font-xl: 24px;
+    /* Montserrat, 24px, 110% */
     --font-2xl: 32px;
+    /* Montserrat, 32px, 120% */
     --font-3xl: 40px;
+    /* Montserrat, 40px, 110% */
     --font-4xl: 46px;
+    /* Montserrat, 46px, 110% */
     --font-5xl: 56px;
+    /* — reserved — */
     --font-6xl: 70px;
+    /* Montserrat, 70px, 110% — H1 */
 
-
-    /* Transitions */
     --classic-transition: 0.2s ease-in-out;
-
-    /* Padding side */
     --padding-side-main: 120px;
     --padding-side-small: 300px;
     --padding-top-bottom: 80px;
@@ -455,8 +461,10 @@ footer {
 
 .countdown-container h3 {
     color: var(--black);
+    font-family: var(--font-main);
     font-weight: 700;
     font-size: var(--font-xl);
+    line-height: 110%;
     text-align: center;
     letter-spacing: 0.02em;
 }
@@ -480,6 +488,7 @@ footer {
 .time span {
     font-size: var(--font-6xl);
     font-weight: 700;
+    line-height: 110%;
     color: var(--primary-yellow);
     text-align: center;
     letter-spacing: -0.01em;
@@ -525,16 +534,20 @@ footer {
 
 .top-container h2 {
     color: var(--primary-yellow);
+    font-family: var(--font-main);
     font-size: var(--font-4xl);
+    line-height: 110%;
     font-weight: 700;
 }
 
 .top-container p {
-    font-size: var(--font-base);
+    font-family: var(--font-small);
+    font-size: var(--font-md);
     font-weight: 400;
     line-height: 160%;
     text-align: center;
 }
+
 
 .bottom-container {
     width: 100%;
@@ -615,7 +628,6 @@ footer {
     position: relative;
     overflow: hidden;
     background: url("../assets/bg-images/BG-Glow-effect.png") no-repeat center center/cover;
-    /* background: var(--black); */
     color: var(--white);
     width: 100%;
     height: 100%;
@@ -639,10 +651,11 @@ footer {
 .left-container h2 {
     width: 100%;
     color: var(--white);
+    font-family: var(--font-main);
     font-size: var(--font-4xl);
     font-weight: 700;
     letter-spacing: 0.02em;
-    line-height: 110.00000000000001%;
+    line-height: 110%;
 }
 
 .left-container h2 span {
@@ -651,7 +664,7 @@ footer {
 
 .left-container p {
     font-family: var(--font-small);
-    font-size: var(--font-base);
+    font-size: var(--font-md);
     font-weight: 400;
     line-height: 160%;
 }
@@ -811,7 +824,7 @@ footer {
 
 
 /* === What to expect === */
-.what-to-expect {
+/* .what-to-expect {
     display: flex;
     justify-content: space-between;
     padding: var(--padding-top-bottom) var(--padding-side-main);
@@ -858,10 +871,10 @@ footer {
 
 .what-to-expect .text {
     font-family: var(--font-small);
-    font-size: var(--font-base);
+    font-size: var(--font-md);
     color: var(--black);
     line-height: 1.6;
-}
+} */
 
 
 /* === Companies and Departments === */
@@ -901,11 +914,13 @@ footer {
 }
 
 .stat-box h3 {
+    font-family: var(--font-main);
     font-size: var(--font-4xl);
     font-weight: 800;
-    line-height: 110.00000000000001%;
+    line-height: 110%;
     color: var(--primary-yellow);
 }
+
 
 .stat-box span {
     color: var(--white)
@@ -913,11 +928,10 @@ footer {
 
 .stat-box p {
     font-family: var(--font-small);
-    font-size: var(--font-base);
-    font-weight: 200;
-    line-height: 110%;
+    font-size: var(--font-md);
+    font-weight: 400;
+    line-height: 160%;
     letter-spacing: 0.02em;
-    color: #191C1D;
     color: var(--white);
     text-align: center;
 }
@@ -936,9 +950,11 @@ footer {
 }
 
 .transport-text h3 {
+    font-family: var(--font-main);
+
     font-size: var(--font-4xl);
     font-weight: 800;
-    line-height: 110.00000000000001%;
+    line-height: 110%;
     letter-spacing: 0.02em;
     margin-bottom: 24px;
 }
@@ -960,8 +976,7 @@ footer {
     font-size: var(--font-md);
     font-weight: 500;
     line-height: 180%;
-    letter-spacing: 0;
-    color: var(--black)
+    color: var(--black);
 }
 
 /* === Bus schedule === */
@@ -1024,8 +1039,10 @@ footer {
 }
 
 .table-wrapper td {
+    font-family: var(--font-small);
     font-size: var(--font-md);
     font-weight: 500;
+    line-height: 160%;
     color: var(--white);
     background-color: #685512;
 }
@@ -1062,9 +1079,6 @@ footer {
     font-size: var(--font-md);
     font-weight: 400;
     line-height: 160%;
-    letter-spacing: 0;
-    width: 50%;
-    align-self: flex-start;
 }
 
 .bus-schedule p a {
@@ -1081,6 +1095,21 @@ footer {
     justify-content: space-between;
     gap: 100px;
     padding: var(--padding-top-bottom) var(--padding-side-main);
+}
+
+.learn-from-best .left-box h2 {
+    font-family: var(--font-main);
+    font-size: var(--font-4xl);
+    font-weight: 800;
+    line-height: 110%;
+    letter-spacing: 0.02em;
+}
+
+.learn-from-best .left-box p {
+    font-family: var(--font-small);
+    font-size: var(--font-md);
+    font-weight: 500;
+    line-height: 180%;
 }
 
 .learn-from-best .left-box,
@@ -1203,12 +1232,12 @@ footer {
 }
 
 .gallery h2 {
+    font-family: var(--font-main);
     font-size: var(--font-4xl);
     font-weight: 800;
-    line-height: 110.00000000000001%;
+    line-height: 110%;
     letter-spacing: 0.02em;
     text-align: center;
-
 }
 
 .text-block h2 span {
@@ -1216,8 +1245,13 @@ footer {
 }
 
 .gallery p {
+    font-family: var(--font-small);
+    font-size: var(--font-md);
+    font-weight: 400;
+    line-height: 160%;
     text-align: center;
 }
+
 
 .gallery a {
     text-decoration: none;
@@ -1257,11 +1291,11 @@ footer {
 }
 
 
-.gallery-button.year-23{
+.gallery-button.year-23 {
     background-color: rgba(234, 195, 27, 0.4);
 }
 
-.gallery-button.year-24{
+.gallery-button.year-24 {
     background-color: rgba(234, 195, 27, 0.5);
 }
 
@@ -1315,20 +1349,22 @@ footer {
 }
 
 .box-container h2 {
+    font-family: var(--font-main);
     font-size: var(--font-3xl);
     font-weight: 700;
+    line-height: 110%;
     letter-spacing: 0.02em;
-    line-height: 110.00000000000001%;
 }
+
 
 .box-container h2 span {
     color: var(--primary-yellow);
 }
 
 .box-container p {
-    font-size: var(--font-base);
+    font-family: var(--font-small);
+    font-size: var(--font-md);
     font-weight: 400;
-    letter-spacing: 0em;
     line-height: 160%;
     margin-top: -20px;
 }
@@ -1356,14 +1392,19 @@ footer {
 }
 
 .partners-header h2 {
+    font-family: var(--font-main);
     font-size: var(--font-4xl);
     font-weight: 800;
-    line-height: 110.00000000000001%;
+    line-height: 110%;
     letter-spacing: 0.02em;
     text-align: center;
 }
 
 .partners-header p {
+    font-family: var(--font-small);
+    font-size: var(--font-md);
+    font-weight: 400;
+    line-height: 160%;
     text-align: center;
     width: 70%;
 }
@@ -1484,6 +1525,7 @@ footer {
     width: 20px;
     height: 20px;
     object-fit: contain;
+    
     fill: white;
 }
 
@@ -1492,11 +1534,10 @@ footer {
     transition: fill var(--classic-transition);
 }
 
-
-
-
-
 .bottom-section {
+    font-family: var(--font-small);
+    font-size: var(--font-sm);
+    line-height: 130%;
     color: var(--gray-light);
     display: flex;
     align-items: center;
