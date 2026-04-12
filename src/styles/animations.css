@@ -1,0 +1,337 @@
+/* ============================================================
+   1. KEYFRAMES
+   ============================================================ */
+
+/* --- UI / entrance --- */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeLeft {
+    from {
+        opacity: 0;
+        transform: translateX(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeRight {
+    from {
+        opacity: 0;
+        transform: translateX(-40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.92);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* --- Scroll indicator arrows --- */
+@keyframes bounceArrow {
+
+    0%,
+    100% {
+        transform: translateY(0);
+        opacity: 0.4;
+    }
+
+    50% {
+        transform: translateY(5px);
+        opacity: 1;
+    }
+}
+
+/* --- Highlight underline draw --- */
+@keyframes drawUnderline {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+/* --- Subtle pulse for CTA buttons --- */
+@keyframes pulseCTA {
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 0 rgba(234, 195, 27, 0.5);
+    }
+
+    50% {
+        box-shadow: 0 0 0 10px rgba(234, 195, 27, 0);
+    }
+}
+
+/* --- Counter count-up shimmer --- */
+@keyframes shimmer {
+    0% {
+        background-position: -200% center;
+    }
+
+    100% {
+        background-position: 200% center;
+    }
+}
+
+/* --- Card fan float (subtle idle animation) --- */
+@keyframes floatCard {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
+}
+
+
+/* ============================================================
+   2. BLOB ANIMATION ASSIGNMENTS
+   (move these out of styles.css)
+   ============================================================ */
+
+.arrows svg:first-child {
+    animation: bounceArrow 1.6s ease-in-out infinite;
+}
+
+.arrows svg:last-child {
+    animation: bounceArrow 1.6s ease-in-out infinite 0.15s;
+}
+
+.scroll-indicator {
+    animation: fadeUp 0.7s ease 0.6s forwards;
+    opacity: 0;
+}
+
+.hero-animate {
+    opacity: 0;
+    transform: translateY(24px);
+    animation: fadeUp 0.7s ease forwards;
+}
+
+
+/* ============================================================
+   3. SCROLL-REVEAL UTILITY CLASSES
+   Add these to any element via JS (IntersectionObserver below)
+   or manually in your HTML with delay modifiers
+   ============================================================ */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+.reveal.from-left {
+    transform: translateX(-40px);
+}
+
+.reveal.from-right {
+    transform: translateX(40px);
+}
+
+.reveal.scale {
+    transform: scale(0.93);
+}
+
+.reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0) translateX(0) scale(1);
+}
+
+/* Staggered children delay helpers */
+.reveal-stagger>* {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.reveal-stagger.is-visible>*:nth-child(1) {
+    opacity: 1;
+    transform: none;
+    transition-delay: 0s;
+}
+
+.reveal-stagger.is-visible>*:nth-child(2) {
+    opacity: 1;
+    transform: none;
+    transition-delay: 0.1s;
+}
+
+.reveal-stagger.is-visible>*:nth-child(3) {
+    opacity: 1;
+    transform: none;
+    transition-delay: 0.2s;
+}
+
+.reveal-stagger.is-visible>*:nth-child(4) {
+    opacity: 1;
+    transform: none;
+    transition-delay: 0.3s;
+}
+
+.reveal-stagger.is-visible>*:nth-child(5) {
+    opacity: 1;
+    transform: none;
+    transition-delay: 0.4s;
+}
+
+.reveal-stagger.is-visible>*:nth-child(6) {
+    opacity: 1;
+    transform: none;
+    transition-delay: 0.5s;
+}
+
+.reveal-stagger.is-visible>*:nth-child(7) {
+    opacity: 1;
+    transform: none;
+    transition-delay: 0.6s;
+}
+
+
+/* ============================================================
+   4. SPECIFIC SECTION ANIMATIONS
+   ============================================================ */
+
+/* --- Heading highlight span animated underline --- */
+.animated-underline {
+    position: relative;
+    display: inline-block;
+}
+
+.animated-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    height: 3px;
+    width: 0;
+    background: var(--primary-yellow);
+    border-radius: 2px;
+    transition: width 0.6s ease;
+}
+
+.animated-underline.is-visible::after {
+    width: 100%;
+}
+
+/* --- Stat number shimmer on reveal --- */
+.stat-box.is-visible h3 {
+    background: linear-gradient(90deg,
+            var(--primary-yellow) 0%,
+            #fff8c0 40%,
+            var(--primary-yellow) 60%,
+            var(--primary-yellow) 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 1.5s ease forwards;
+}
+
+/* --- CTA button pulse --- */
+.cta-pulse {
+    animation: pulseCTA 2.5s ease-in-out infinite;
+}
+
+/* --- Partner logos fade in on scroll --- */
+.partner-item,
+.platinum-partners img {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.partner-item.is-visible,
+.platinum-partners img.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* ============================================================
+   5. REDUCED MOTION — override everything
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .hero-animate,
+    .scroll-indicator {
+        animation: none;
+        opacity: 1;
+        transform: none;
+    }
+
+    .reveal,
+    .reveal-stagger>* {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+    .partner-item,
+    .platinum-partners img {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+    .stat-box.is-visible h3 {
+        animation: none;
+        background: none;
+        -webkit-text-fill-color: var(--primary-yellow);
+        color: var(--primary-yellow);
+    }
+}

@@ -1,6 +1,7 @@
 ---
 // src/layouts/BaseLayout.astro
 import '../styles/style.css';
+import '../styles/animations.css';
 import '../styles/media-query.css';
 ---
 
@@ -13,7 +14,7 @@ import '../styles/media-query.css';
 			content="width=device-width, initial-scale=1.0"
 		/>
 
-		<title>TVZ CareerDay 2026</title>
+		<title>TVZ CareerDay 2026 | Sajam karijera u Zagrebu</title>
 
 		<meta
 			name="description"
@@ -23,7 +24,10 @@ import '../styles/media-query.css';
 			rel="canonical"
 			href="https://careerday.tvz.hr/"
 		/>
-
+		<meta
+			name="author"
+			content="TVZ CareerDay Team"
+		/>
 		<meta
 			property="og:type"
 			content="website"
@@ -77,27 +81,50 @@ import '../styles/media-query.css';
 			name="twitter:image"
 			content="https://careerday.tvz.hr/assets/og/tvz-careerday-2026-og.jpg"
 		/>
+		<meta
+			name="robots"
+			content="index, follow"
+		/>
 
+		<meta
+			name="geo.region"
+			content="HR-21"
+		/>
+		<meta
+			name="geo.placename"
+			content="Zagreb"
+		/>
+		<meta
+			name="geo.position"
+			content="45.8150;15.9819"
+		/>
+		<meta
+			name="ICBM"
+			content="45.8150, 15.9819"
+		/>
 		<link
 			rel="icon"
-			href="/icons/favicon.ico"
+			href="/assets/icons/favicon_32x32.ico"
 			sizes="any"
 		/>
 		<link
 			rel="icon"
 			type="image/png"
-			href="/icons/favicon-32x32.png"
+			href="/assets/icons/favicon_32x32.png"
 			sizes="32x32"
 		/>
 		<link
 			rel="apple-touch-icon"
-			href="/icons/apple-touch-icon.png"
+			href="/assets/icons/apple-touch-icon.png"
 		/>
 		<meta
 			name="theme-color"
 			content="#000000"
 		/>
-
+		<meta
+			name="keywords"
+			content="TVZ CareerDay, sajam karijera, Zagreb, studenti, posao, praksa, CareerTalks"
+		/>
 		<link
 			rel="preconnect"
 			href="https://fonts.googleapis.com"
@@ -121,8 +148,10 @@ import '../styles/media-query.css';
 				"eventStatus": "https://schema.org/EventScheduled",
 				"eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
 				"description": "TVZ CareerDay 2026 okuplja studente i poslodavce kroz razgovore, prezentacije i prilike za praksu i posao.",
-				"image": ["https://careerday.tvz.hr/assets/icons/favicon 64x64.jpg"],
+				"image": ["https://careerday.tvz.hr/assets/og/tvz-careerday-2026-og.jpg"],
 				"url": "https://careerday.tvz.hr/",
+				"startDate": "2026-03-15T10:00",
+				"endDate": "2026-03-15T18:00",
 				"organizer": {
 					"@type": "Organization",
 					"name": "Tehničko veleučilište u Zagrebu",
@@ -148,6 +177,10 @@ import '../styles/media-query.css';
 		<script
 			is:inline
 			src="/javascript/count-down-timer.js"
+		></script>
+		<script
+			is:inline
+			src="/javascript/scroll.js"
 		></script>
 		<script
 			is:inline

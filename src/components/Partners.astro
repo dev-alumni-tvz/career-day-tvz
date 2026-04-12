@@ -61,12 +61,12 @@ const partners = [
 ---
 
 <section class="partners-container">
-	<div class="partners-header">
+	<div class="partners-header reveal">
 		<h2>Prošlogodišnji partneri</h2>
 		<p>Iza svakog logotipa krije se tim koji traži baš tebe. Iskoristi priliku i upoznaj ih!</p>
 	</div>
 
-	<div class="platinum-partners">
+	<div class="platinum-partners reveal-stagger">
 		<a
 			href="https://www.koncar.hr/en"
 			target="_blank"
@@ -89,7 +89,7 @@ const partners = [
 		</a>
 	</div>
 
-	<div class="partners-grid">
+	<div class="partners-grid reveal-stagger">
 		{
 			partners.map(({ src, alt, url }) => (
 				<div class="partner-item">
@@ -108,7 +108,7 @@ const partners = [
 		}
 	</div>
 
-	<div class="bottom-section-partners">
+	<div class="bottom-section-partners reveal-stagger">
 		<div class="partner-bottom">
 			<h2>Strateški partneri:</h2>
 			<a

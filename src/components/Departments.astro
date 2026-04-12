@@ -1,43 +1,4 @@
 ---
-/* const departments = [
-	{
-		name: 'Elektrotehnika',
-		desc: 'Električni sustavi, automatika i energetika.',
-		gradient: 'linear-gradient(135deg, #f97316, #ea580c, #c2410c)',
-		pill: '#ea580c',
-	},
-	{
-		name: 'Računarstvo',
-		desc: 'Programiranje, mreže i računalni sustavi.',
-		gradient: 'linear-gradient(135deg, #7c3aed, #6d28d9, #4c1d95)',
-		pill: '#7c3aed',
-	},
-	{
-		name: 'Strojarstvo',
-		desc: 'Mehanika, konstrukcija i industrijska postrojenja.',
-		gradient: 'linear-gradient(135deg, #dc2626, #b91c1c, #7f1d1d)',
-		pill: '#dc2626',
-	},
-	{
-		name: 'Mehatronika',
-		desc: 'Spoj strojarstva, elektronike i računarstva.',
-		gradient: 'linear-gradient(135deg, #d97706, #b45309, #78350f)',
-		pill: '#d97706',
-	},
-	{
-		name: 'Graditeljstvo',
-		desc: 'Projektiranje, gradnja i infrastruktura.',
-		gradient: 'linear-gradient(135deg, #16a34a, #15803d, #14532d)',
-		pill: '#16a34a',
-	},
-	{
-		name: 'Informatika',
-		desc: 'Digitalni sustavi, baze podataka i IT rješenja.',
-		gradient: 'linear-gradient(135deg, #0891b2, #0e7490, #164e63)',
-		pill: '#0891b2',
-	},
-];
- */
 const departments = [
 	{ name: 'Elektrotehnika', desc: 'Električni sustavi, automatika i energetika.' },
 	{ name: 'Računarstvo', desc: 'Programiranje, mreže i računalni sustavi.' },
@@ -53,29 +14,15 @@ const translateX = [80, 45, 18, 0, -18, -45, -80];
 ---
 
 <section class="departments">
-	<div class="dept-header">
+	<div class="dept-header reveal">
 		<h2>Pridruži se <span>1500+ studenata</span><br />i lansiraj svoju karijeru!</h2>
 		<p>Zašto doći? Jer 1500 studenata ne dolazi bez razloga. Tu je mjesto gdje se stvari stvarno pokreću — gdje upoznaš ljude koji ti mogu otvoriti vrata.</p>
 	</div>
 
 	<!-- Fan of cards -->
-	<div class="dept-fan-wrapper">
+	<div class="dept-fan-wrapper reveal scale">
 		<div class="dept-fan">
 			{
-				/* 	departments.map((d, i) => (
-					<div
-						class="dept-card"
-						style={`background: ${d.gradient};
-                        transform: rotate(${rotations[i]}deg) translate(${translateX[i]}px, ${translateY[i]}px);
-                        z-index: ${i === 3 ? 7 : i < 3 ? i + 1 : 7 - i};
-                    `}
-					>
-						<div class="dept-card-inner">
-							<span class="dept-card-name">{d.name}</span>
-							<span class="dept-card-desc">{d.desc}</span>
-						</div>
-					</div>
-				)) */
 				departments.map((d, i) => (
 					<div class={`dept-card dept-card--${i}`}>
 						<div class="dept-card-inner">
@@ -88,7 +35,7 @@ const translateX = [80, 45, 18, 0, -18, -45, -80];
 		</div>
 	</div>
 
-	<p class="dept-footer-text">Industrije koje povezujemo i područja iz kojih dolaze studenti — pronađi gdje se ti uklapaš.</p>
+	<p class="dept-footer-text reveal">Industrije koje povezujemo i područja iz kojih dolaze studenti — pronađi gdje se ti uklapaš.</p>
 </section>
 
 <style>

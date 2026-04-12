@@ -10,66 +10,113 @@ const images = await Promise.all(
 ---
 
 <section class="gallery">
-	<div class="text-block">
+	<div class="text-block reveal">
 		<div class="text-wrapper">
 			<h2>TVZ CareerDay <span>2025</span></h2>
 			<p>Ako ti se sviđa atmosfera na fotkama, tek će ti se svidjeti kako izgleda uživo. Pridruži nam se i budi dio priče!</p>
 		</div>
-		<a href="https://careerdaytvz.pixieset.com/careerdaytvz2024/">
-			<button class="gallery-button"
-				>Galerija 2025.
+		<a href="https://tvzcareerday.pixieset.com/tvzcareerday2025/">
+			<button class="gallery-button">
+				Galerija 2025.
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					height="16px"
 					viewBox="0 -960 960 960"
 					width="16px"
 					fill="#000000"
-					><path d="M647-440H160v-80h487L423-744l57-56 320 320-320 320-57-56 224-224Z"></path></svg
-				></button
-			>
+				>
+					<path d="M647-440H160v-80h487L423-744l57-56 320 320-320 320-57-56 224-224Z"></path>
+				</svg>
+			</button>
 		</a>
 	</div>
 
 	<div class="masonry">
 		{
 			images.map(({ src, alt }) => (
-				<Image
-					src={src}
-					alt={alt}
-				/>
+				<a
+					href="https://tvzcareerday.pixieset.com/tvzcareerday2025/"
+					class="masonry-item gallery-img-reveal"
+				>
+					<Image
+						src={src}
+						alt={alt}
+					/>
+					<div class="masonry-overlay">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							height="28px"
+							viewBox="0 -960 960 960"
+							width="28px"
+							fill="#EAC31B"
+						>
+							<path d="M340-540q-25 0-42.5-17.5T280-600q0-25 17.5-42.5T340-660q25 0 42.5 17.5T400-600q0 25-17.5 42.5T340-540Zm0 260L540-500l160 200H260l80-100Zm-160 140q-33 0-56.5-23.5T60-220v-520q0-33 23.5-56.5T140-820h680q33 0 56.5 23.5T900-740v520q0 33-23.5 56.5T820-140H180Zm0-80h640v-520H180v520Zm0 0v-520 520Z" />
+						</svg>
+					</div>
+				</a>
 			))
 		}
 	</div>
 
-	<div class="last-year">
+	<div class="last-year reveal">
 		<p>Prethodne godine:</p>
 		<div class="last-year-buttons">
 			<a href="https://careerdaytvz.pixieset.com/careerdaytvz2024/">
-				<button class="gallery-button year-23"
-					>Galerija 2025.
+				<button class="gallery-button year-23">
+					Galerija 2024.
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						height="16px"
 						viewBox="0 -960 960 960"
 						width="16px"
 						fill="#EAC31B"
-						><path d="M647-440H160v-80h487L423-744l57-56 320 320-320 320-57-56 224-224Z"></path></svg
-					></button
-				>
+					>
+						<path d="M647-440H160v-80h487L423-744l57-56 320 320-320 320-57-56 224-224Z"></path>
+					</svg>
+				</button>
 			</a>
-			<a href="https://careerdaytvz.pixieset.com/careerdaytvz2024/">
-				<button class="gallery-button year-24"
-					>Galerija 2025.
+			<a href="https://tvz-mc2.pixieset.com/tvzcareerday/">
+				<button class="gallery-button year-24">
+					Galerija 2023.
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						height="16px"
 						viewBox="0 -960 960 960"
 						width="16px"
 						fill="#EAC31B"
-						><path d="M647-440H160v-80h487L423-744l57-56 320 320-320 320-57-56 224-224Z"></path></svg
-					></button
-				>
+					>
+						<path d="M647-440H160v-80h487L423-744l57-56 320 320-320 320-57-56 224-224Z"></path>
+					</svg>
+				</button>
 			</a>
 		</div>
 	</div>
 </section>
+
+<script>
+	const items = document.querySelectorAll<HTMLElement>('.gallery-img-reveal');
+
+	const observer = new IntersectionObserver(
+		(entries) => {
+			entries.forEach((entry) => {
+				if (entry.isIntersecting) {
+					const el = entry.target as HTMLElement;
+					const index = parseInt(el.dataset.index || '0');
+					setTimeout(
+						() => {
+							el.classList.add('is-visible');
+						},
+						(index % 4) * 80,
+					);
+					observer.unobserve(el);
+				}
+			});
+		},
+		{ threshold: 0.1 },
+	);
+
+	items.forEach((item, i) => {
+		item.dataset.index = String(i);
+		observer.observe(item);
+	});
+</script>
