@@ -472,5 +472,10 @@
         gap: 5px;
         font-size: 14px;
     }
-
 }
+
+@media (max-width: 380px) {
+    .header p {
+            font-size: 12px
+        }
+    }

@@ -1,10 +1,10 @@
 ---
 import { Image } from 'astro:assets';
 
-import koncar from '../assets/images/partners/koncar.svg';
-import spegra from '../assets/images/partners/spegra.svg';
-import hup from '../assets/images/partners/hup.svg';
-import hrMinistrarstvo from '../assets/images/partners/HRMinistrarstvo.svg';
+const koncar = (await import('../assets/images/partners/koncar.svg')).default;
+const spegra = (await import('../assets/images/partners/spegra.svg')).default;
+const hup = (await import('../assets/images/partners/hup.svg')).default;
+const hrMinistrarstvo = (await import('../assets/images/partners/HRMinistrarstvo.svg')).default;
 
 const partners = [
 	{ src: (await import('../assets/images/partners/strabag.svg')).default, alt: 'Strabag', url: 'https://www.strabag.hr/' },
