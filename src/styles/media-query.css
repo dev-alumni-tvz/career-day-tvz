@@ -56,6 +56,8 @@
 
         --padding-top-bottom: 50px;
 
+
+        --font-md: 14px;
         --font-lg: 16px;
         --font-xl: 18px;
         --font-2xl: 24px;
@@ -83,6 +85,8 @@
 
         --padding-top-bottom: 40px;
 
+        --font-md: 12px;
+        --font-lg: 14px;
         --font-xl: 16px;
         --font-2xl: 20px;
         --font-3xl: 24px;
@@ -312,7 +316,9 @@
         --padding-side-main: 30px;
         --padding-side-small: 30px;
 
-
+        --font-md: 12px;
+        --font-lg: 14px;
+        --font-xl: 16px;
         --font-2xl: 18px;
         --font-3xl: 20px;
         --font-4xl: 24px;
@@ -475,7 +481,21 @@
 }
 
 @media (max-width: 380px) {
-    .header p {
-            font-size: 12px
-        }
+    :root {
+        --padding-side-main: 30px;
+        --padding-side-small: 30px;
+
+        --font-md: 12px;
+        --font-lg: 14px;
+        --font-xl: 16px;
+        --font-2xl: 18px;
+        --font-3xl: 20px;
+        --font-4xl: 24px;
+        --font-5xl: 30px;
+        --font-6xl: 36px;
     }
+
+    .header p {
+        font-size: 12px
+    }
+}
