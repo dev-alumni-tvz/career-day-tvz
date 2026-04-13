@@ -460,7 +460,7 @@ footer {
 /* === Companies and Departments === */
 
 .stats-container {
-    padding: var(--padding-top-bottom) var(--padding-side-small);
+    padding: var(--padding-top-bottom) var(--padding-side-main);
     display: flex;
     flex-direction: column;
     align-items: center;

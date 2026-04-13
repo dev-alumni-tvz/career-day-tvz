@@ -6,11 +6,8 @@ const departments = [
 	{ name: 'Mehatronika', desc: 'Spoj strojarstva, elektronike i računarstva.' },
 	{ name: 'Graditeljstvo', desc: 'Projektiranje, gradnja i infrastruktura.' },
 	{ name: 'Informatika', desc: 'Digitalni sustavi, baze podataka i IT rješenja.' },
+	{ name: '+ ostale industrije', desc: null },
 ];
-
-const rotations = [-18, -12, -6, 0, 6, 12, 18];
-const translateY = [60, 30, 10, 0, 10, 30, 60];
-const translateX = [80, 45, 18, 0, -18, -45, -80];
 ---
 
 <section class="departments">
@@ -100,7 +97,7 @@ const translateX = [80, 45, 18, 0, -18, -45, -80];
 	.dept-card {
 		width: 200px;
 		height: 200px;
-		border-radius: 20px;
+		border-radius: 16px;
 		flex-shrink: 0;
 		position: relative;
 		border: 2px solid rgba(255, 255, 255, 0.25);
@@ -110,18 +107,51 @@ const translateX = [80, 45, 18, 0, -18, -45, -80];
 			border 0.25s ease,
 			box-shadow 0.25s ease;
 	}
+	.dept-card-name {
+		color: #ffffff;
+	}
 
-	.dept-card--0,
-	.dept-card--2,
+	.dept-card::before {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background: linear-gradient(to top, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.2) 45%, transparent 100%);
+		border-radius: inherit;
+		pointer-events: none;
+		z-index: 1;
+	}
+
+	.dept-card-desc {
+		color: rgba(255, 255, 255, 0.75);
+	}
+
+	.dept-card--0 {
+		background: linear-gradient(145deg, #f5c518, #e0a800);
+	}
+
+	.dept-card--1 {
+		background: linear-gradient(145deg, #8b5cf6, #6d28d9);
+	}
+
+	.dept-card--2 {
+		background: linear-gradient(145deg, #ef4444, #b91c1c);
+	}
+
+	.dept-card--3 {
+		background: linear-gradient(145deg, #f97316, #c2410c);
+	}
+
 	.dept-card--4 {
-		background: linear-gradient(135deg, #1a1a1a, #0d0d0d);
-	}
-	.dept-card--1,
-	.dept-card--3,
-	.dept-card--5 {
-		background: linear-gradient(135deg, #111111, #1f1f1f);
+		background: linear-gradient(145deg, #22c55e, #15803d);
 	}
 
+	.dept-card--5 {
+		background: linear-gradient(145deg, #3b82f6, #1d4ed8);
+	}
+
+	.dept-card--6 {
+		background: linear-gradient(145deg, #f9f9f9, #c7c7c7);
+	}
 	/* Transforms & z-index — left to right, rightmost highest */
 	.dept-card--0 {
 		transform: rotate(-18deg) translate(80px, 60px);
@@ -147,22 +177,15 @@ const translateX = [80, 45, 18, 0, -18, -45, -80];
 		transform: rotate(12deg) translate(-45px, 30px);
 		z-index: 6;
 	}
+	.dept-card--6 {
+		transform: rotate(18deg) translate(-80px, 60px);
+		z-index: 7;
+	}
 
 	.dept-card:hover {
 		border: 2px solid var(--primary-yellow);
 		box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
 		z-index: 20 !important;
-	}
-
-	/* Noise texture overlay for depth */
-	.dept-card::before {
-		content: '';
-		position: absolute;
-		inset: 0;
-		background: radial-gradient(ellipse at 85% 15%, rgba(234, 179, 8, 0.18) 0%, transparent 55%), radial-gradient(ellipse at 15% 85%, rgba(0, 0, 0, 0.4) 0%, transparent 55%);
-		border-radius: inherit;
-		pointer-events: none;
-		z-index: 1;
 	}
 
 	.dept-card-name {
@@ -242,21 +265,65 @@ const translateX = [80, 45, 18, 0, -18, -45, -80];
 			font-size: var(--font-3xl);
 		}
 
+		.dept-fan {
+			display: grid;
+			grid-template-columns: repeat(4, 140px);
+			grid-template-rows: auto auto;
+			justify-content: center;
+			align-items: center;
+			gap: 8px;
+		}
+
+		/* Row 1 — 4 cards */
+		.dept-card--0 {
+			grid-column: 1;
+			grid-row: 1;
+			transform: rotate(-9deg) translate(20px, 18px);
+		}
+		.dept-card--1 {
+			grid-column: 2;
+			grid-row: 1;
+			transform: rotate(-3deg) translate(6px, 4px);
+		}
+		.dept-card--2 {
+			grid-column: 3;
+			grid-row: 1;
+			transform: rotate(3deg) translate(-6px, 4px);
+		}
+		.dept-card--3 {
+			grid-column: 4;
+			grid-row: 1;
+			transform: rotate(9deg) translate(-20px, 18px);
+		}
+
+		/* Row 2 — 3 cards centered: span columns 1-3, shift right via translate to center under 4 */
+		.dept-card--4 {
+			grid-column: 1;
+			grid-row: 2;
+			transform: rotate(-6deg) translate(90px, 12px);
+		}
+		.dept-card--5 {
+			grid-column: 2;
+			grid-row: 2;
+			transform: rotate(0deg) translate(70px, 0px);
+		}
+		.dept-card--6 {
+			grid-column: 3;
+			grid-row: 2;
+			transform: rotate(6deg) translate(50px, 12px);
+		}
+
 		.dept-card {
 			width: 140px;
 			height: 140px;
 			border-radius: 16px;
-			flex-shrink: 0;
 		}
-
 		.dept-card-name {
 			font-size: var(--font-sm);
 		}
-
 		.dept-card-desc {
 			font-size: 11px;
 		}
-
 		.dept-card-inner {
 			padding: 12px;
 		}
@@ -268,7 +335,33 @@ const translateX = [80, 45, 18, 0, -18, -45, -80];
 		}
 
 		.dept-fan {
-			gap: 10px;
+			grid-template-columns: repeat(4, 90px);
+			gap: 6px;
+		}
+
+		/* Row 1 */
+		.dept-card--0 {
+			transform: rotate(-9deg) translate(12px, 18px);
+		}
+		.dept-card--1 {
+			transform: rotate(-3deg) translate(4px, 4px);
+		}
+		.dept-card--2 {
+			transform: rotate(3deg) translate(-4px, 4px);
+		}
+		.dept-card--3 {
+			transform: rotate(9deg) translate(-12px, 18px);
+		}
+
+		/* Row 2 — base 45px + rotation offsets */
+		.dept-card--4 {
+			transform: rotate(-6deg) translate(65px, 12px);
+		}
+		.dept-card--5 {
+			transform: rotate(0deg) translate(45px, 0px);
+		}
+		.dept-card--6 {
+			transform: rotate(6deg) translate(25px, 12px);
 		}
 
 		.dept-card {
@@ -276,16 +369,13 @@ const translateX = [80, 45, 18, 0, -18, -45, -80];
 			height: 90px;
 			border-radius: 14px;
 		}
-
 		.dept-card-name {
 			font-size: 10px;
 		}
-
 		.dept-card-desc {
 			font-size: 8px;
 			line-height: 1.3;
 		}
-
 		.dept-card-inner {
 			padding: 10px;
 			gap: 3px;
@@ -293,20 +383,47 @@ const translateX = [80, 45, 18, 0, -18, -45, -80];
 	}
 
 	@media (max-width: 380px) {
-		.dept-card {
-			width: 90px;
-			height: 90px;
-			border-radius: 12px;
+		.dept-fan {
+			grid-template-columns: repeat(4, 80px);
+			gap: 4px;
 		}
 
+		/* Row 1 */
+		.dept-card--0 {
+			transform: rotate(-9deg) translate(10px, 18px);
+		}
+		.dept-card--1 {
+			transform: rotate(-3deg) translate(3px, 4px);
+		}
+		.dept-card--2 {
+			transform: rotate(3deg) translate(-3px, 4px);
+		}
+		.dept-card--3 {
+			transform: rotate(9deg) translate(-10px, 18px);
+		}
+
+		/* Row 2 — base 40px + rotation offsets */
+		.dept-card--4 {
+			transform: rotate(-6deg) translate(60px, 12px);
+		}
+		.dept-card--5 {
+			transform: rotate(0deg) translate(40px, 0px);
+		}
+		.dept-card--6 {
+			transform: rotate(6deg) translate(20px, 12px);
+		}
+
+		.dept-card {
+			width: 80px;
+			height: 80px;
+			border-radius: 12px;
+		}
 		.dept-card-name {
 			font-size: 10px;
 		}
-
 		.dept-card-desc {
 			font-size: 9px;
 		}
-
 		.dept-card-inner {
 			padding: 8px;
 		}
