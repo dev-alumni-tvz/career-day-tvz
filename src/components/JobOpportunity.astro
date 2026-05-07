@@ -1,5 +1,6 @@
 ---
 import { Image } from 'astro:assets';
+import { config } from '../data/config';
 import likImage from '../assets/images/lik2.svg';
 ---
 
@@ -8,18 +9,12 @@ import likImage from '../assets/images/lik2.svg';
 		<div class="box-container">
 			<h2>Tražiš nove <span>poslovne prilike?</span></h2>
 			<p>Dođi i upoznaj tvrtke koje traže mlade talente poput tebe. Razgovaraj direktno s poslodavcima, saznaj više o prilikama, praksama i svom budućem poslu!</p>
-			<a
-				href="https://luma.com/cd26"
-				target="_blank"
-			>
+			<a href={config.lumaLink} target="_blank">
 				<button class="cta-pulse">Prijavi se</button>
 			</a>
 		</div>
 		<div class="right-container">
-			<Image
-				src={likImage}
-				alt="Ilustracija radnog čovjeka"
-			/>
+			<Image src={likImage} alt="Ilustracija radnog čovjeka" />
 		</div>
 	</div>
 </section>

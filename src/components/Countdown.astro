@@ -1,5 +1,6 @@
 ---
-// src/components/Countdown.astro
+import { config } from '../data/config';
+const eventDateISO = config.eventDate.toISOString();
 ---
 
 <section class="countdown-container">
@@ -26,3 +27,25 @@
 		</div>
 	</div>
 </section>
+
+<script is:inline define:vars={{ eventDateISO }}>
+	const countdownDate = new Date(eventDateISO).getTime();
+
+	function updateCountdown() {
+		const distance = countdownDate - Date.now();
+
+		if (distance < 0) {
+			document.querySelector('.countdown-text').innerHTML = 'CareerDay je počeo!';
+			clearInterval(timer);
+			return;
+		}
+
+		document.getElementById('days').textContent = String(Math.floor(distance / 86400000)).padStart(2, '0');
+		document.getElementById('hours').textContent = String(Math.floor((distance % 86400000) / 3600000)).padStart(2, '0');
+		document.getElementById('minutes').textContent = String(Math.floor((distance % 3600000) / 60000)).padStart(2, '0');
+		document.getElementById('seconds').textContent = String(Math.floor((distance % 60000) / 1000)).padStart(2, '0');
+	}
+
+	updateCountdown();
+	const timer = setInterval(updateCountdown, 1000);
+</script>

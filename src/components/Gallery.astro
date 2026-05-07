@@ -1,33 +1,34 @@
 ---
 import { Image } from 'astro:assets';
+import { featuredGallery, galleryArchive } from '../data/gallery';
 
+type GalleryModule = { default: ImageMetadata };
+const imageModules = import.meta.glob<GalleryModule>('../assets/images/gallery/*.png');
 const images = await Promise.all(
-	Array.from({ length: 12 }, (_, i) => i + 1).map(async (i) => {
-		const img = await import(`../assets/images/gallery/${i}.png`);
-		return { src: img.default, alt: `Slika za galeriju ${i}` };
-	}),
+	Object.entries(imageModules)
+		.sort(([a], [b]) => {
+			const n = (p: string) => parseInt(p.match(/(\d+)\.png$/)?.[1] ?? '0');
+			return n(a) - n(b);
+		})
+		.map(async ([path, loader]) => {
+			const mod = await loader();
+			const num = path.match(/(\d+)\.png$/)?.[1] ?? '';
+			return { src: mod.default, alt: `Slika za galeriju ${num}` };
+		}),
 );
+
 ---
 
 <section class="gallery">
 	<div class="text-block reveal">
 		<div class="text-wrapper">
-			<h2>TVZ CareerDay <span>2025</span></h2>
+			<h2>TVZ CareerDay <span>{featuredGallery.year}</span></h2>
 			<p>Ako ti se sviđa atmosfera na fotkama, tek će ti se svidjeti kako izgleda uživo. Pridruži nam se i budi dio priče!</p>
 		</div>
-		<a
-			href="https://tvzcareerday.pixieset.com/tvzcareerday2025/"
-			target="_blank"
-		>
+		<a href={featuredGallery.url} target="_blank">
 			<button class="gallery-button">
-				Galerija 2025.
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					height="16px"
-					viewBox="0 -960 960 960"
-					width="16px"
-					fill="#000000"
-				>
+				Galerija {featuredGallery.year}.
+				<svg xmlns="http://www.w3.org/2000/svg" height="16px" viewBox="0 -960 960 960" width="16px" fill="#000000">
 					<path d="M647-440H160v-80h487L423-744l57-56 320 320-320 320-57-56 224-224Z"></path>
 				</svg>
 			</button>
@@ -35,64 +36,31 @@ const images = await Promise.all(
 	</div>
 
 	<div class="masonry">
-		{
-			images.map(({ src, alt }) => (
-				<a
-					href="https://tvzcareerday.pixieset.com/tvzcareerday2025/"
-					target="_blank"
-					class="masonry-item gallery-img-reveal"
-				>
-					<Image
-						src={src}
-						alt={alt}
-					/>
-					<div class="masonry-overlay">
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							height="28px"
-							viewBox="0 -960 960 960"
-							width="28px"
-							fill="#EAC31B"
-						>
-							<path d="M340-540q-25 0-42.5-17.5T280-600q0-25 17.5-42.5T340-660q25 0 42.5 17.5T400-600q0 25-17.5 42.5T340-540Zm0 260L540-500l160 200H260l80-100Zm-160 140q-33 0-56.5-23.5T60-220v-520q0-33 23.5-56.5T140-820h680q33 0 56.5 23.5T900-740v520q0 33-23.5 56.5T820-140H180Zm0-80h640v-520H180v520Zm0 0v-520 520Z" />
-						</svg>
-					</div>
-				</a>
-			))
-		}
+		{images.map(({ src, alt }) => (
+			<a href={featuredGallery.url} target="_blank" class="masonry-item gallery-img-reveal">
+				<Image src={src} alt={alt} />
+				<div class="masonry-overlay">
+					<svg xmlns="http://www.w3.org/2000/svg" height="28px" viewBox="0 -960 960 960" width="28px" fill="#EAC31B">
+						<path d="M340-540q-25 0-42.5-17.5T280-600q0-25 17.5-42.5T340-660q25 0 42.5 17.5T400-600q0 25-17.5 42.5T340-540Zm0 260L540-500l160 200H260l80-100Zm-160 140q-33 0-56.5-23.5T60-220v-520q0-33 23.5-56.5T140-820h680q33 0 56.5 23.5T900-740v520q0 33-23.5 56.5T820-140H180Zm0-80h640v-520H180v520Zm0 0v-520 520Z" />
+					</svg>
+				</div>
+			</a>
+		))}
 	</div>
 
 	<div class="last-year reveal">
 		<p>Prethodne godine:</p>
 		<div class="last-year-buttons">
-			<a href="https://careerdaytvz.pixieset.com/careerdaytvz2024/" target="_blank">
-				<button class="gallery-button year-23">
-					Galerija 2024.
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						height="16px"
-						viewBox="0 -960 960 960"
-						width="16px"
-						fill="#EAC31B"
-					>
-						<path d="M647-440H160v-80h487L423-744l57-56 320 320-320 320-57-56 224-224Z"></path>
-					</svg>
-				</button>
-			</a>
-			<a href="https://tvz-mc2.pixieset.com/tvzcareerday/" target="_blank">
-				<button class="gallery-button year-24">
-					Galerija 2023.
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						height="16px"
-						viewBox="0 -960 960 960"
-						width="16px"
-						fill="#EAC31B"
-					>
-						<path d="M647-440H160v-80h487L423-744l57-56 320 320-320 320-57-56 224-224Z"></path>
-					</svg>
-				</button>
-			</a>
+			{galleryArchive.map(entry => (
+				<a href={entry.url} target="_blank">
+					<button class="gallery-button">
+						Galerija {entry.year}.
+						<svg xmlns="http://www.w3.org/2000/svg" height="16px" viewBox="0 -960 960 960" width="16px" fill="#EAC31B">
+							<path d="M647-440H160v-80h487L423-744l57-56 320 320-320 320-57-56 224-224Z"></path>
+						</svg>
+					</button>
+				</a>
+			))}
 		</div>
 	</div>
 </section>
@@ -106,12 +74,7 @@ const images = await Promise.all(
 				if (entry.isIntersecting) {
 					const el = entry.target as HTMLElement;
 					const index = parseInt(el.dataset.index || '0');
-					setTimeout(
-						() => {
-							el.classList.add('is-visible');
-						},
-						(index % 4) * 80,
-					);
+					setTimeout(() => { el.classList.add('is-visible'); }, (index % 4) * 80);
 					observer.unobserve(el);
 				}
 			});

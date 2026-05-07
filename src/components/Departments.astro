@@ -1,13 +1,5 @@
 ---
-const departments = [
-	{ name: 'Elektrotehnika', desc: 'Električni sustavi, automatika i energetika.' },
-	{ name: 'Računarstvo', desc: 'Programiranje, mreže i računalni sustavi.' },
-	{ name: 'Strojarstvo', desc: 'Mehanika, konstrukcija i industrijska postrojenja.' },
-	{ name: 'Mehatronika', desc: 'Spoj strojarstva, elektronike i računarstva.' },
-	{ name: 'Graditeljstvo', desc: 'Projektiranje, gradnja i infrastruktura.' },
-	{ name: 'Informatika', desc: 'Digitalni sustavi, baze podataka i IT rješenja.' },
-	{ name: '+ ostale industrije', desc: null },
-];
+import { departments } from '../data/departments';
 ---
 
 <section class="departments">
@@ -21,7 +13,7 @@ const departments = [
 		<div class="dept-fan">
 			{
 				departments.map((d, i) => (
-					<div class={`dept-card dept-card--${i}`}>
+					<div class={`dept-card dept-card--${i}`} style={`background: ${d.gradient}`}>
 						<div class="dept-card-inner">
 							<span class="dept-card-name">{d.name}</span>
 							<span class="dept-card-desc">{d.desc}</span>
@@ -131,33 +123,6 @@ const departments = [
 		color: rgba(255, 255, 255, 0.75);
 	}
 
-	.dept-card--0 {
-		background: linear-gradient(145deg, #f5c518, #e0a800);
-	}
-
-	.dept-card--1 {
-		background: linear-gradient(145deg, #8b5cf6, #6d28d9);
-	}
-
-	.dept-card--2 {
-		background: linear-gradient(145deg, #ef4444, #b91c1c);
-	}
-
-	.dept-card--3 {
-		background: linear-gradient(145deg, #f97316, #c2410c);
-	}
-
-	.dept-card--4 {
-		background: linear-gradient(145deg, #22c55e, #15803d);
-	}
-
-	.dept-card--5 {
-		background: linear-gradient(145deg, #3b82f6, #1d4ed8);
-	}
-
-	.dept-card--6 {
-		background: linear-gradient(145deg, #f9f9f9, #c7c7c7);
-	}
 	/* Transforms & z-index — left to right, rightmost highest */
 	.dept-card--0 {
 		transform: rotate(-18deg) translate(80px, 60px);

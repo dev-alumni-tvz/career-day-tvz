@@ -1,5 +1,6 @@
 ---
 import { Image } from 'astro:assets';
+import { config } from '../data/config';
 import Nav from '../components/Nav.astro';
 import heroImage from '../assets/images/career-2026-fix.svg';
 import lumaStar from '../assets/images/lumaStar.svg';
@@ -16,24 +17,15 @@ import lumaStar from '../assets/images/lumaStar.svg';
 		/>
 
 		<a
-			href="https://luma.com/cd26"
+			href={config.lumaLink}
 			target="_blank"
 			class="hero-animate"
 			style="animation-delay: 0.15s;"
 		>
 			<button class="cta-pulse">Prijavi se!</button>
 		</a>
-		<p
-			class="hero-open hero-animate"
-			style="animation-delay: 0.3s;"
-		>
-			<Image
-				src={lumaStar}
-				alt="star icon"
-				width={15}
-				height={15}
-				class="hero-luma-icon"
-			/>
+		<p class="hero-open hero-animate" style="animation-delay: 0.3s;">
+			<Image src={lumaStar} alt="star icon" width={15} height={15} class="hero-luma-icon" />
 			Otvoreno za <strong>SVE</strong> studente grada Zagreba
 		</p>
 	</div>
@@ -41,33 +33,11 @@ import lumaStar from '../assets/images/lumaStar.svg';
 	<div class="scroll-position">
 		<div class="scroll-indicator">
 			<div class="arrows">
-				<svg
-					width="24"
-					height="12"
-					viewBox="0 0 24 12"
-					fill="none"
-				>
-					<path
-						d="M2 2L12 10L22 2"
-						stroke="#EAC31B"
-						stroke-width="2"
-						stroke-linecap="round"
-						stroke-linejoin="round"
-					></path>
+				<svg width="24" height="12" viewBox="0 0 24 12" fill="none">
+					<path d="M2 2L12 10L22 2" stroke="#EAC31B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
 				</svg>
-				<svg
-					width="24"
-					height="12"
-					viewBox="0 0 24 12"
-					fill="none"
-				>
-					<path
-						d="M2 2L12 10L22 2"
-						stroke="#EAC31B"
-						stroke-width="2"
-						stroke-linecap="round"
-						stroke-linejoin="round"
-					></path>
+				<svg width="24" height="12" viewBox="0 0 24 12" fill="none">
+					<path d="M2 2L12 10L22 2" stroke="#EAC31B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
 				</svg>
 			</div>
 		</div>
