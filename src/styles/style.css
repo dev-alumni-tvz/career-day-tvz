@@ -1133,6 +1133,8 @@ footer {
     gap: 100px;
 }
 
+
+
 .partners-grid {
     width: 100%;
     display: grid;
@@ -1150,7 +1152,6 @@ footer {
 }
 
 .partner-item img,
-.platinum-partners img,
 .partner-bottom img {
     max-width: 100%;
     width: 100%;
@@ -1158,6 +1159,19 @@ footer {
     min-height: 40px;
     max-height: 100px;
     transition: transform var(--classic-transition), box-shadow var(--classic-transition);
+}
+
+
+.platinum-partners img {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    transition: transform var(--classic-transition), box-shadow var(--classic-transition);
+
+}
+
+.platinum-partners .janaf-logo img {
+    height: 160px;
 }
 
 .partner-item img:hover,

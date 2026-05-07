@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets';
 
 const koncar = (await import('../assets/images/partners/koncar.svg')).default;
+const janaf = (await import('../assets/images/partners/Janaf.svg')).default;
 const spegra = (await import('../assets/images/partners/spegra.svg')).default;
 const hup = (await import('../assets/images/partners/hup.svg')).default;
 const hrMinistrarstvo = (await import('../assets/images/partners/HRMinistrarstvo.svg')).default;
@@ -11,24 +12,15 @@ const partners = [
 	{ src: (await import('../assets/images/partners/hops.svg')).default, alt: 'HOPS', url: 'https://www.hops.hr/' },
 	{ src: (await import('../assets/images/partners/zaba.svg')).default, alt: 'Zagrebačka banka', url: 'https://www.zaba.hr/home/en' },
 	{ src: (await import('../assets/images/partners/Raiffeisen.svg')).default, alt: 'Raiffeisen', url: 'https://www.rba.hr/hr/gradani.html' },
-	{ src: (await import('../assets/images/partners/koios.svg')).default, alt: 'Koios', url: 'https://koios.hr/' },
-	{ src: (await import('../assets/images/partners/Janaf.svg')).default, alt: 'Janaf', url: 'https://janaf.hr/' },
 	{ src: (await import('../assets/images/partners/kamgrad.svg')).default, alt: 'Kamgrad', url: 'https://www.kamgrad.hr/' },
 	{ src: (await import('../assets/images/partners/Tekton.svg')).default, alt: 'Tekton', url: 'https://tekton-zg.hr/en/' },
 	{ src: (await import('../assets/images/partners/Ina.svg')).default, alt: 'INA', url: 'https://www.ina.hr/' },
-	{ src: (await import('../assets/images/partners/shape.svg')).default, alt: 'Shape', url: 'https://shape.agency/en/' },
-	{ src: (await import('../assets/images/partners/jungheinrich.svg')).default, alt: 'Jungheinrich', url: 'https://www.jungheinrich.com/en' },
 	{ src: (await import('../assets/images/partners/aba.svg')).default, alt: 'ABA', url: 'https://aba.gv.at/en/' },
-	{ src: (await import('../assets/images/partners/Integration.svg')).default, alt: 'Integration', url: 'https://www.integrationmatters.com/hr/' },
 	{ src: (await import('../assets/images/partners/montelektro.svg')).default, alt: 'Montelektro', url: 'https://www.montelektro.hr/' },
 	{ src: (await import('../assets/images/partners/hkzp.svg')).default, alt: 'HKZP', url: 'https://www.crocontrol.hr/' },
 	{ src: (await import('../assets/images/partners/amelicor.svg')).default, alt: 'Amelicor', url: 'https://amelicor.group/' },
 	{ src: (await import('../assets/images/partners/knapp.svg')).default, alt: 'Knapp', url: 'https://www.knapp.com/' },
-	{ src: (await import('../assets/images/partners/Altpro.svg')).default, alt: 'Altpro', url: 'https://altpro.com/' },
-	{ src: (await import('../assets/images/partners/porsche-ebike.svg')).default, alt: 'Porsche eBike', url: 'https://www.porsche-ebike-performance.com/en/' },
 	{ src: (await import('../assets/images/partners/prva-banka.svg')).default, alt: 'Privredna banka', url: 'https://www.pbz.hr/en/gradjani' },
-	{ src: (await import('../assets/images/partners/ecc.svg')).default, alt: 'ECC', url: 'https://eec.com.hr/' },
-	{ src: (await import('../assets/images/partners/helb.svg')).default, alt: 'HELB', url: 'https://www.helb.hr/' },
 	{ src: (await import('../assets/images/partners/porsche.svg')).default, alt: 'Porsche Digital', url: 'https://www.porsche.digital/' },
 	{ src: (await import('../assets/images/partners/tmobile.svg')).default, alt: 'T-Mobile', url: 'https://www.t-mobile.com/' },
 	{ src: (await import('../assets/images/partners/Telelink.svg')).default, alt: 'Telelink', url: 'https://www.tbs.tech/' },
@@ -38,31 +30,39 @@ const partners = [
 	{ src: (await import('../assets/images/partners/vertiv.svg')).default, alt: 'Vertiv', url: 'https://www.vertiv.com/en-us/' },
 	{ src: (await import('../assets/images/partners/Tehmont.svg')).default, alt: 'Tehmont', url: 'https://tehmont.eu/' },
 	{ src: (await import('../assets/images/partners/ent.svg')).default, alt: 'ENT', url: 'https://ericssonnikolatesla.com/' },
-	{ src: (await import('../assets/images/partners/HILTI.svg')).default, alt: 'Hilti', url: 'https://www.hilti.com/' },
 	{ src: (await import('../assets/images/partners/reply.svg')).default, alt: 'Reply Comsysto', url: 'https://www.comsystoreply.de/en' },
 	{ src: (await import('../assets/images/partners/apis.svg')).default, alt: 'Apis IT', url: 'https://www.apis-it.hr/' },
 	{ src: (await import('../assets/images/partners/fina.svg')).default, alt: 'FINA', url: 'https://www.fina.hr/' },
 	{ src: (await import('../assets/images/partners/dspace.svg')).default, alt: 'dSPACE', url: 'https://www.dspace.com/' },
 	{ src: (await import('../assets/images/partners/point.svg')).default, alt: 'Point', url: 'https://www.point.hr/' },
 	{ src: (await import('../assets/images/partners/infobip.svg')).default, alt: 'Infobip', url: 'https://www.infobip.com/' },
-	{ src: (await import('../assets/images/partners/moberg.svg')).default, alt: 'Moberg', url: 'https://www.moberg.hr/' },
-	{ src: (await import('../assets/images/partners/Adheziv.svg')).default, alt: 'Adheziv', url: 'https://www.adheziv.hr/' },
 	{ src: (await import('../assets/images/partners/pontis.svg')).default, alt: 'Pontis', url: 'https://pontistechnology.com/' },
 	{ src: (await import('../assets/images/partners/oiv.svg')).default, alt: 'OIV', url: 'https://oiv.hr/' },
 	{ src: (await import('../assets/images/partners/Span.svg')).default, alt: 'Span', url: 'https://www.span.eu/hr/' },
-	{ src: (await import('../assets/images/partners/Stype.svg')).default, alt: 'Stype', url: 'https://stype.tv/' },
-	{ src: (await import('../assets/images/partners/groupama.svg')).default, alt: 'Groupama', url: 'https://www.groupama.hr/' },
-	{ src: (await import('../assets/images/partners/Ministarstvo.svg')).default, alt: 'Ministarstvo', url: 'https://www.morh.hr/' },
-	{ src: (await import('../assets/images/partners/A1.svg')).default, alt: 'A1', url: 'https://www.a1.hr/' },
-	{ src: (await import('../assets/images/partners/IBM.svg')).default, alt: 'IBM', url: 'https://www.ibm.com/us-en' },
 	{ src: (await import('../assets/images/partners/KnezLjubo.svg')).default, alt: 'Knez Ljubo', url: 'https://www.knezljubo.hr/' },
-	{ src: (await import('../assets/images/partners/crossvallia.svg')).default, alt: 'Crossvallia', url: 'https://crossvallia.hr/' },
+	{ src: (await import('../assets/images/partners/libusoft.svg')).default, alt: 'LibusoftCicom', url: 'https://www.libusoftcicom.hr/' },
+	{ src: (await import('../assets/images/partners/schneider.svg')).default, alt: 'Schneider Electric', url: 'https://www.se.com/hr/hr/' },
+	{ src: (await import('../assets/images/partners/sdms.svg')).default, alt: 'SDMS', url: 'https://sdms.hr/' },
+	{ src: (await import('../assets/images/partners/yazaki.svg')).default, alt: 'Yazaki', url: 'https://www.yazaki-europe.com/' },
+	{ src: (await import('../assets/images/partners/all-eyes-on-screens.svg')).default, alt: 'All Eyes On Screens', url: 'https://alleyesonscreens.com/' },
+	{ src: (await import('../assets/images/partners/hmv.svg')).default, alt: 'H&MV Engineering', url: 'https://www.hmvengineering.com/' },
+	{ src: (await import('../assets/images/partners/intis.svg')).default, alt: 'Intis', url: 'https://www.intis.hr/' },
+	{ src: (await import('../assets/images/partners/siemens.svg')).default, alt: 'Siemens', url: 'https://www.siemens.com/hr/hr.html' },
+	{ src: (await import('../assets/images/partners/pedom.svg')).default, alt: 'Pedom Asfalti', url: 'https://pedom-asfalti.hr/' },
+	{ src: (await import('../assets/images/partners/domusplus.svg')).default, alt: 'Domusplus', url: 'https://www.domusplus.hr/' },
+	{ src: (await import('../assets/images/partners/hpb.svg')).default, alt: 'HPB', url: 'https://www.hpb.hr/' },
+	{ src: (await import('../assets/images/partners/legrand.svg')).default, alt: 'Legrand', url: 'https://www.legrand.hr/' },
+	{ src: (await import('../assets/images/partners/xylon.svg')).default, alt: 'Xylon', url: 'https://xylon-lab.com/' },
+	{ src: (await import('../assets/images/partners/lth-castings.svg')).default, alt: 'LTH Castings', url: 'https://www.lthcastings.com/hr/domov' },
+	{ src: (await import('../assets/images/partners/sick.svg')).default, alt: 'SICK', url: 'https://sickconnect.com/' },
+	{ src: (await import('../assets/images/partners/pro-integris.svg')).default, alt: 'Pro Integris', url: 'https://www.prointegris.com/' },
+	{ src: (await import('../assets/images/partners/colas.svg')).default, alt: 'Colas', url: 'https://www.colas.hr/' },
 ];
 ---
 
 <section class="partners-container">
 	<div class="partners-header reveal">
-		<h2>Prošlogodišnji partneri</h2>
+		<h2>Ovogodišnji partneri</h2>
 		<p>Iza svakog logotipa krije se tim koji traži baš tebe. Iskoristi priliku i upoznaj ih!</p>
 	</div>
 
@@ -78,13 +78,14 @@ const partners = [
 			/>
 		</a>
 		<a
-			href="https://spegra.hr/"
+			href="https://janaf.hr/"
 			target="_blank"
 			rel="noopener"
+			class="janaf-logo"
 		>
 			<Image
-				src={spegra}
-				alt="Spegra logo"
+				src={janaf}
+				alt="JANAF logo"
 			/>
 		</a>
 	</div>
@@ -107,7 +108,7 @@ const partners = [
 			))
 		}
 	</div>
-
+	<!-- 
 	<div class="bottom-section-partners reveal-stagger">
 		<div class="partner-bottom">
 			<h2>Strateški partneri:</h2>
@@ -135,5 +136,5 @@ const partners = [
 				/>
 			</a>
 		</div>
-	</div>
+	</div> -->
 </section>
