@@ -24,3 +24,13 @@ import scheduleImg from '../assets/images/schedule-img.png';
 		</a>
 	</div>
 </section>
+
+<script>
+	const overlay = document.querySelector<HTMLElement>('.right-box .overlay');
+	if (overlay) {
+		setInterval(() => {
+			overlay.classList.add('active');
+			setTimeout(() => overlay.classList.remove('active'), 2000);
+		}, 5000);
+	}
+</script>
