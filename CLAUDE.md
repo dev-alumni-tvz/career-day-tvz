@@ -28,7 +28,7 @@ Hero → Countdown → About → Info → WhatToExpect → Stats → Departments
 - `src/styles/style.css` — CSS custom properties (design tokens), base reset, component styles
 - `src/styles/animations.css` — keyframes and scroll-reveal animation classes
 - `src/styles/media-query.css` — responsive breakpoints overriding the CSS variables
-- `src/styles/shedule.css` — styles specific to the schedule section (note: filename has a typo)
+- `src/styles/schedule.css` — styles specific to the schedule section (note: filename has a typo)
 
 Key CSS variables defined in `:root`: `--primary-yellow: #EAC31B`, `--black: #0F0B0C`, `--padding-side-main`, `--padding-top-bottom`. Responsive layout is achieved by overriding these variables at breakpoints rather than duplicating rules.
 
@@ -49,3 +49,17 @@ Key CSS variables defined in `:root`: `--primary-yellow: #EAC31B`, `--black: #0F
 - Event date is hardcoded in multiple places: `count-down-timer.js`, `BaseLayout.astro` JSON-LD, and component markup — update all when the date changes
 - The Luma registration link (`https://luma.com/cd26`) appears in `Hero.astro` and `Footer.astro`
 - Partner logos are individual SVGs in `src/assets/images/partners/`
+
+## Agent skills
+
+### Issue tracker
+
+Issues live in GitHub Issues (`github.com/dev-alumni-tvz/career-day-tvz`). See `docs/agents/issue-tracker.md`.
+
+### Triage labels
+
+Default label vocabulary (needs-triage, needs-info, ready-for-agent, ready-for-human, wontfix). See `docs/agents/triage-labels.md`.
+
+### Domain docs
+
+Single-context repo — one `CONTEXT.md` + `docs/adr/` at the root. See `docs/agents/domain.md`.

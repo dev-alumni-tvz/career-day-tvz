@@ -22,3 +22,10 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# Claude Code local permissions (contains machine-specific absolute paths)
+.claude/
+
+# Windows
+Thumbs.db
+desktop.ini
