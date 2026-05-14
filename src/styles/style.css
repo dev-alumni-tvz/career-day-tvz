@@ -1174,10 +1174,83 @@ footer {
     height: 160px;
 }
 
+.partner-bottom img:hover {
+    transform: scale(1.05);
+}
+
+/* === Tier sections === */
+
+.tier-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.tier-label {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+}
+
+.tier-label::before,
+.tier-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: currentColor;
+    opacity: 0.15;
+}
+
+.tier-label-text {
+    font-family: var(--font-main);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    padding: 5px 14px;
+    border-radius: 20px;
+    border: 1px solid currentColor;
+}
+
+.platinum-label {
+    color: #8BAECC;
+}
+
+.gold-label {
+    color: var(--primary-yellow);
+}
+
+.silver-label {
+    color: #A8A8A8;
+}
+
+.other-label {
+    color: #606060;
+}
+
+/* === Partner cards === */
+
+.partner-card {
+    border-radius: 14px;
+    padding: 24px 32px;
+}
+
 .partner-item img:hover,
 .platinum-partners img:hover,
 .partner-bottom img:hover {
     transform: scale(1.05);
+}
+
+.grid-card {
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    transition: border-color 0.25s ease;
+}
+
+.grid-card:hover {
+    border-color: rgba(255, 255, 255, 0.2);
 }
 
 .bottom-section-partners {

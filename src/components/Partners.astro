@@ -12,7 +12,9 @@ async function resolvePartner(p: Partner) {
 
 const resolved = await Promise.all(partners.map(resolvePartner));
 const platinum = resolved.filter(p => p.tier === 'platinum');
-const grid = resolved.filter(p => p.tier === 'grid');
+const gold = resolved.filter(p => p.tier === 'gold');
+const silver = resolved.filter(p => p.tier === 'silver');
+const other = resolved.filter(p => p.tier === 'other');
 const strategic = resolved.filter(p => p.tier === 'strategic');
 const patron = resolved.filter(p => p.tier === 'patron');
 ---
@@ -23,23 +25,69 @@ const patron = resolved.filter(p => p.tier === 'patron');
 		<p>Iza svakog logotipa krije se tim koji traži baš tebe. Iskoristi priliku i upoznaj ih!</p>
 	</div>
 
-	<div class="platinum-partners reveal-stagger">
-		{platinum.map(p => (
-			<a href={p.url} target="_blank" rel="noopener" class={p.logoClass}>
-				<Image src={p.src} alt={`${p.name} logo`} />
-			</a>
-		))}
-	</div>
-
-	<div class="partners-grid reveal-stagger">
-		{grid.map(p => (
-			<div class="partner-item">
-				<a href={p.url} target="_blank" rel="noopener">
+	<div class="tier-section reveal">
+		<div class="tier-label">
+			<span class="tier-label-text platinum-label">Platinum partneri</span>
+		</div>
+		<div class="platinum-partners reveal-stagger">
+			{platinum.map(p => (
+				<a href={p.url} target="_blank" rel="noopener" class={`partner-card platinum-card ${p.logoClass ?? ''}`}>
 					<Image src={p.src} alt={`${p.name} logo`} />
 				</a>
-			</div>
-		))}
+			))}
+		</div>
 	</div>
+
+	{gold.length > 0 && (
+		<div class="tier-section reveal">
+			<div class="tier-label">
+				<span class="tier-label-text gold-label">Zlatni partneri</span>
+			</div>
+			<div class="partners-grid reveal-stagger">
+				{gold.map(p => (
+					<div class={`partner-item ${p.logoClass ?? ''}`}>
+						<a href={p.url} target="_blank" rel="noopener">
+							<Image src={p.src} alt={`${p.name} logo`} />
+						</a>
+					</div>
+				))}
+			</div>
+		</div>
+	)}
+
+	{silver.length > 0 && (
+		<div class="tier-section reveal">
+			<div class="tier-label">
+				<span class="tier-label-text silver-label">Silver Partneri</span>
+			</div>
+			<div class="partners-grid reveal-stagger">
+				{silver.map(p => (
+					<div class="partner-item grid-card">
+						<a href={p.url} target="_blank" rel="noopener">
+							<Image src={p.src} alt={`${p.name} logo`} />
+						</a>
+					</div>
+				))}
+			</div>
+		</div>
+	)}
+
+	{other.length > 0 && (
+		<div class="tier-section reveal">
+			<div class="tier-label">
+				<span class="tier-label-text other-label">Ostali partneri</span>
+			</div>
+			<div class="partners-grid reveal-stagger">
+				{other.map(p => (
+					<div class="partner-item grid-card">
+						<a href={p.url} target="_blank" rel="noopener">
+							<Image src={p.src} alt={`${p.name} logo`} />
+						</a>
+					</div>
+				))}
+			</div>
+		</div>
+	)}
 
 	{(strategic.length > 0 || patron.length > 0) && (
 		<div class="bottom-section-partners reveal-stagger">
