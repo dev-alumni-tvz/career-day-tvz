@@ -1,24 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 481.1 113.4">
-  <defs>
-    <style>
-      .cls-1 {
-        fill: #d2051e;
-      }
-
-      .cls-1, .cls-2 {
-        stroke-width: 0px;
-      }
-
-      .cls-2 {
-        fill: #fff;
-      }
-    </style>
-  </defs>
-  <g id="SVG">
-    <g>
-      <rect class="cls-1" width="481.1" height="113.4"/>
-      <path class="cls-2" d="M192.5,86.2h-32.2V27.2h32.2v59ZM448.9,27.2h-32.2v59h32.2V27.2ZM32.2,86.2h32.2v-15.5h56.3v15.5h32.2V27.2h-32.2v15.5h-56.3v-15.5h-32.2v59ZM200,86.2h99.7v-27.2h-67.5v-31.8h-32.2v59ZM274.1,54.4h51.5v31.8h32.2v-31.8h51.5v-27.2h-135.2v27.2Z"/>
-    </g>
-  </g>
+<svg width="244" height="58" viewBox="0 0 244 58" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M243.134 0H0V57.2473H243.134V0Z" fill="#D2051E"/>
+<path d="M97.2825 43.5198H81.0102V13.7344H97.2825V43.5198ZM226.862 13.7344H210.59V43.5198H226.862V13.7344ZM16.2725 43.5198H32.5447V35.6966H60.9961V43.5198H77.2683V13.7344H60.9961V21.5575H32.5447V13.7344H16.2725V43.5198ZM101.075 43.5198H151.461V29.7889H117.35V13.7344H101.078V43.5198H101.075ZM138.522 27.4652H164.547V43.5198H180.819V27.4652H206.844V13.7344H138.519V27.4652H138.522Z" fill="white"/>
 </svg>
