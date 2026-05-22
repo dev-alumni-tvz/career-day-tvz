@@ -1,7 +1,7 @@
 ---
 import { talks } from '../data/talks.ts';
-const previewTalks = talks.slice(0, 5);
-const remaining = talks.length - 5;
+const previewTalks = talks.slice(0, 3);
+const remaining = talks.length - 3;
 ---
 
 <section
@@ -33,7 +33,7 @@ const remaining = talks.length - 5;
 						</div>
 					))
 				}
-				<p class="preview-more">+ {remaining} više predavanja</p>
+				<p class="preview-more">+ {remaining} predavanja</p>
 			</div>
 			<a
 				href="/schedule"

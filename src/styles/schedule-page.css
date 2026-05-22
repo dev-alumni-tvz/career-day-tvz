@@ -61,6 +61,12 @@
     flex-wrap: wrap;
 }
 
+/* Dept colour tokens on filter buttons */
+.filter-btn[data-dept="INRO"] { --dept-color: #4A9EE0; }
+.filter-btn[data-dept="ELO"]  { --dept-color: #EAC31B; }
+.filter-btn[data-dept="GRO"]  { --dept-color: #50C878; }
+.filter-btn[data-dept="STRO"] { --dept-color: #A78BFA; }
+
 .filter-btn {
     background: transparent;
     color: var(--gray-medium);
@@ -73,6 +79,19 @@
     cursor: pointer;
     transition: all 0.2s ease;
     box-shadow: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+}
+
+/* Coloured dot banner for dept filter buttons */
+.filter-btn[data-dept]:not([data-dept="all"])::before {
+    content: '';
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--dept-color);
+    flex-shrink: 0;
 }
 
 .filter-btn:hover {
