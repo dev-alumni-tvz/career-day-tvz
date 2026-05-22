@@ -9,6 +9,7 @@ import Stats from '../components/Stats.astro';
 import Transport from '../components/Transport.astro';
 import BusSchedule from '../components/BusSchedule.astro';
 import CareerTalks from '../components/CareerTalks.astro';
+import YourDestiny from '../components/YourDestiny.astro';
 import Gallery from '../components/Gallery.astro';
 import JobOpportunity from '../components/JobOpportunity.astro';
 import Partners from '../components/Partners.astro';
@@ -21,17 +22,18 @@ import { config } from '../data/config';
 	<div class="hero-wrapper">
 		<Hero />
 	</div>
-	<Countdown />
-	<About />
-	<Info />
-	<WhatToExpect />
-	<Stats />
-	<Departments />
+	{config.showCountdown && <Countdown />}
+	{config.showAbout && <About />}
+	{config.showInfo && <Info />}
+	{config.showWhatToExpect && <WhatToExpect />}
+	{config.showStats && <Stats />}
 	{config.showTransport && <Transport />}
-	{config.showTransport && <BusSchedule />}
+	{config.showBusSchedule && <BusSchedule />}
 	{config.showCareerTalks && <CareerTalks />}
-	<Gallery />
-	<JobOpportunity />
-	<Partners />
+	{config.showYourDestiny && <YourDestiny />}
+	{config.showDepartments && <Departments />}
+	{config.showGallery && <Gallery />}
+	{config.showJobOpportunity && <JobOpportunity />}
+	{config.showPartners && <Partners />}
 	<Footer />
 </BaseLayout>
