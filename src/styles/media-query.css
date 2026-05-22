@@ -238,7 +238,10 @@
 
     .learn-from-best .right-box {
         width: 100%;
-        aspect-ratio: 16/9;
+    }
+
+    .preview-cta {
+        margin: 0 auto;
     }
 
 

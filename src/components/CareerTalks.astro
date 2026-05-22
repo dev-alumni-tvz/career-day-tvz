@@ -1,6 +1,7 @@
 ---
-import { Image } from 'astro:assets';
-import scheduleImg from '../assets/images/schedule-img.png';
+import { talks } from '../data/talks.ts';
+const previewTalks = talks.slice(0, 5);
+const remaining = talks.length - 5;
 ---
 
 <section
@@ -14,23 +15,32 @@ import scheduleImg from '../assets/images/schedule-img.png';
 			savjet i pronađi smjer koji te zbilja zanima.
 		</p>
 	</div>
+
 	<div class="right-box reveal from-left">
-		<a href="/schedule/schedule.html">
-			<Image
-				src={scheduleImg}
-				alt="schedule"
-			/>
-			<div class="overlay">Pogledaj raspored!</div>
-		</a>
+		<div class="schedule-preview">
+			<div class="preview-timeline">
+				{
+					previewTalks.map((talk) => (
+						<div class={`preview-talk dept-${talk.department}`}>
+							<div class="preview-talk-bar" />
+							<div class="preview-talk-info">
+								<span class="preview-talk-time">
+									{talk.timeStart} – {talk.timeEnd}
+								</span>
+								<p class="preview-talk-title">{talk.title}</p>
+								<span class="preview-talk-company">{talk.company}</span>
+							</div>
+						</div>
+					))
+				}
+				<p class="preview-more">+ {remaining} više predavanja</p>
+			</div>
+			<a
+				href="/schedule"
+				class="preview-cta"
+			>
+				Pogledaj cijeli raspored
+			</a>
+		</div>
 	</div>
 </section>
-
-<script>
-	const overlay = document.querySelector<HTMLElement>('.right-box .overlay');
-	if (overlay) {
-		setInterval(() => {
-			overlay.classList.add('active');
-			setTimeout(() => overlay.classList.remove('active'), 2000);
-		}, 5000);
-	}
-</script>
