@@ -1,0 +1,97 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import '../styles/schedule-page.css';
+import { talks } from '../data/talks.ts';
+
+function timeToMinutes(t: string) {
+	const [h, m] = t.split(':').map(Number);
+	return h * 60 + m;
+}
+
+const START = timeToMinutes('11:20');
+const INTERVAL = 5;
+
+function row(t: string) {
+	return (timeToMinutes(t) - START) / INTERVAL + 1;
+}
+
+// 30-min markers from 11:30 to 16:30
+const markers: { label: string; row: number }[] = [];
+for (let min = START + 10; min <= 990; min += 30) {
+	const h = Math.floor(min / 60);
+	const m = min % 60;
+	markers.push({
+		label: `${h}:${m.toString().padStart(2, '0')}`,
+		row: (min - START) / INTERVAL + 1,
+	});
+}
+---
+
+<BaseLayout>
+	<main class="schedule-page">
+		<div class="schedule-header">
+			<a
+				href="/#career-talks"
+				class="back-link"
+				>← Naslovna</a
+			>
+			<div class="header-text">
+				<h2><span>CareerTalks</span> Raspored</h2>
+				<p>27. svibnja 2026. · Dvorana Kornati, Zagreb</p>
+			</div>
+		</div>
+
+		<div class="dept-filters">
+			<button
+				class="filter-btn active"
+				data-dept="all"
+				>Svi</button
+			>
+			{
+				(['INRO', 'ELO', 'GRO', 'STRO'] as const).map((dept) => (
+					<button
+						class="filter-btn"
+						data-dept={dept}
+					>
+						{dept}
+					</button>
+				))
+			}
+		</div>
+
+		<div class="timeline">
+			{
+				markers.map((m) => (
+					<div
+						class="time-marker"
+						style={`grid-row: ${m.row}`}
+					>
+						{m.label}
+					</div>
+				))
+			}
+
+			{
+				talks.map((talk) => (
+					<div
+						class={`talk-block dept-${talk.department}`}
+						data-dept={talk.department}
+						style={`grid-row: ${row(talk.timeStart)} / ${row(talk.timeEnd)}`}
+					>
+						<span class="talk-time">
+							{talk.timeStart} – {talk.timeEnd}
+						</span>
+						<h3 class="talk-title">{talk.title}</h3>
+						<p class="talk-company">{talk.company}</p>
+						<p class="talk-speaker">{talk.speaker}</p>
+					</div>
+				))
+			}
+		</div>
+	</main>
+</BaseLayout>
+
+<script
+	is:inline
+	src="/javascript/schedule-page.js"
+></script>
