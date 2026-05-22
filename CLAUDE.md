@@ -17,9 +17,11 @@ Node >= 22.12.0 is required.
 This is a single-page **Astro** static site for the TVZ CareerDay 2026 event (27 May 2026, Dvorana Kornati, Zagreb). It deploys to `https://careerday.tvz.hr` via Vercel.
 
 **Single page layout** — `src/pages/index.astro` composes all sections in order:
-Hero → Countdown → About → Info → WhatToExpect → Stats → Departments → Gallery → JobOpportunity → Partners → Footer
+Hero → Countdown → About → Info → WhatToExpect → Stats → Transport → BusSchedule → CareerTalks → YourDestiny → Departments → Gallery → JobOpportunity → Partners → Footer
 
-`Transport`, `BusSchedule`, and `CareerTalks` sections are currently commented out in `index.astro`.
+All sections are individually toggled via feature flags in `src/data/config.ts`.
+
+**Pages** — `src/pages/schedule.astro` is a separate route (`/schedule`) for the CareerTalks talk schedule with table/cards views and department filtering.
 
 **Layout** — `src/layouts/BaseLayout.astro` wraps every page, injects global CSS, SEO/OG meta tags, JSON-LD Event schema, Google Fonts (Montserrat, Manrope, Inter), Vercel Analytics, and four vanilla JS scripts loaded via `is:inline`.
 
@@ -28,7 +30,6 @@ Hero → Countdown → About → Info → WhatToExpect → Stats → Departments
 - `src/styles/style.css` — CSS custom properties (design tokens), base reset, component styles
 - `src/styles/animations.css` — keyframes and scroll-reveal animation classes
 - `src/styles/media-query.css` — responsive breakpoints overriding the CSS variables
-- `src/styles/schedule.css` — styles specific to the schedule section (note: filename has a typo)
 
 Key CSS variables defined in `:root`: `--primary-yellow: #EAC31B`, `--black: #0F0B0C`, `--padding-side-main`, `--padding-top-bottom`. Responsive layout is achieved by overriding these variables at breakpoints rather than duplicating rules.
 
