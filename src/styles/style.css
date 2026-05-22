@@ -525,7 +525,7 @@ footer {
     padding: 0 0 135px 0;
     background: var(--white);
     gap: 40px;
-    background: url("../assets/images/train.svg") no-repeat center center/contain;
+    background: url("../assets/images/bus.svg") no-repeat center center/contain;
 }
 
 .transport-text h3 {
@@ -653,6 +653,14 @@ footer {
     color: var(--white);
 }
 
+.bus-schedule .bottom-text{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 15px;
+}
+
 .bus-schedule p {
     font-family: var(--font-small);
     font-size: var(--font-md);
@@ -697,61 +705,109 @@ footer {
     display: flex;
 }
 
-.learn-from-best .right-box a {
+/* === Schedule Preview (CareerTalks right-box) === */
+.dept-INRO { --dept-color: #4A9EE0; }
+.dept-ELO  { --dept-color: #EAC31B; }
+.dept-GRO  { --dept-color: #50C878; }
+.dept-STRO { --dept-color: #A78BFA; }
+.dept-SVE  { --dept-color: #B7B6B6; }
+
+.schedule-preview {
     width: 100%;
-    height: 100%;
+    background:
+        linear-gradient(rgba(15, 11, 12, 0.75), rgba(15, 11, 12, 0.75)),
+        url("../assets/bg-images/BG-Glow-effect-2.png") no-repeat center center / cover;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 28px;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
+    flex-direction: column;
+    gap: 20px;
 }
 
-.learn-from-best .right-box {
+.preview-timeline {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #000000;
-    border-radius: 25px;
-    aspect-ratio: 16/9;
+    flex-direction: column;
 }
 
-.right-box img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 25px;
+.preview-talk {
+    display: flex;
+    align-items: stretch;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-.right-box {
-    position: relative;
+.preview-talk:last-of-type {
+    border-bottom: none;
+}
+
+.preview-talk-bar {
+    width: 3px;
+    border-radius: 2px;
+    background: var(--dept-color, rgba(255, 255, 255, 0.2));
+    flex-shrink: 0;
+}
+
+.preview-talk-info {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    min-width: 0;
+}
+
+.preview-talk-time {
+    font-family: var(--font-small);
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--dept-color);
+    letter-spacing: 0.04em;
+}
+
+.preview-talk-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 130%;
+    white-space: nowrap;
     overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-.right-box .overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.6);
-    color: #fff;
-    font-size: var(--font-xl);
-    font-weight: bold;
-    display: flex;
+.preview-talk-company {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--gray-medium);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.preview-more {
+    font-family: var(--font-small);
+    font-size: 12px;
+    color: var(--gray-medium);
+    padding-top: 10px;
+}
+
+.preview-cta {
+    display: inline-flex;
     align-items: center;
-    justify-content: center;
-    border-radius: 25px;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.5s ease;
-    z-index: 2;
+    background: var(--primary-yellow);
+    color: var(--black);
+    font-weight: 700;
+    font-size: 14px;
+    font-family: var(--font-main);
+    padding: 8px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: all var(--classic-transition);
+    width: fit-content;
+    border: none;
 }
 
-.right-box:hover .overlay {
-    opacity: 1;
-    pointer-events: auto;
-}
-
-.right-box .overlay.active {
-    opacity: 1;
-    pointer-events: auto;
+.preview-cta:hover {
+    box-shadow: 0px 0px 14px 0 rgba(255, 255, 255, 0.8);
+    cursor: pointer;
 }
 
 .learn-from-best .left-box {
@@ -780,6 +836,44 @@ footer {
     letter-spacing: 0;
 }
 
+
+/* === Your Destiny === */
+.your-destiny {
+    background: url("../assets/bg-images/BG-your-destiny.png") no-repeat center center/cover;
+    width: 100%;
+    padding: var(--padding-top-bottom) var(--padding-side-main);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    text-align: center;
+}
+
+.your-destiny h2 {
+    font-size: var(--font-4xl);
+    font-weight: 800;
+    line-height: 110%;
+    letter-spacing: 0.02em;
+    color: var(--white);
+    text-align: center;
+}
+
+.your-destiny h2 span {
+    color: var(--primary-yellow);
+}
+
+.your-destiny p {
+    font-family: var(--font-small);
+    font-size: var(--font-md);
+    font-weight: 500;
+    line-height: 160%;
+    color: var(--white);
+}
+
+.your-destiny p span {
+    color: var(--primary-yellow);
+}
 
 /* === Gallery === */
 .gallery {
