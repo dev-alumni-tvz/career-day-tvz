@@ -49,6 +49,7 @@ export const partners: Partner[] = [
 	{ name: 'Siemens', logoFile: 'siemens.svg', url: 'https://www.siemens.com/hr/hr.html', tier: 'gold' },
 	{ name: 'Pedom Asfalti', logoFile: 'pedom.svg', url: 'https://pedom-asfalti.hr/', tier: 'gold' },
 	{ name: 'Domusplus', logoFile: 'domusplus.svg', url: 'https://www.domusplus.hr/', tier: 'gold' },
+	{ name: 'Ngh Group', logoFile: 'ngh-group.svg', url: 'https://ngh.hr/', tier: 'gold' },
 
 	// Silver
 	{ name: 'Reply Comsysto', logoFile: 'reply.svg', url: 'https://www.comsystoreply.de/en', tier: 'silver' },
