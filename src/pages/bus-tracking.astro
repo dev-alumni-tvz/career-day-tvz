@@ -43,8 +43,7 @@ const deviceId2   = Number(import.meta.env.PUBLIC_TRACCAR_DEVICE_ID_2 ?? 9);
     const ROUTE_WEIGHT  = IS_MOBILE ? 5  : 3;
     const ARROW_SIZE    = IS_MOBILE ? 13 : 9;
 
-    const SIMULATE = !traccarUrl || !apiToken;
-    console.log('[Traccar] config:', { traccarUrl, hasToken: !!apiToken, deviceId1, deviceId2, SIMULATE });
+    console.log('[Traccar] config:', { traccarUrl, hasToken: !!apiToken, deviceId1, deviceId2 });
 
     // ── Stop data ──────────────────────────────────────────────────
     const line1Stops = [
@@ -330,56 +329,20 @@ const deviceId2   = Number(import.meta.env.PUBLIC_TRACCAR_DEVICE_ID_2 ?? 9);
     chip1.addEventListener('click',   () => setFilter(1));
     chip2.addEventListener('click',   () => setFilter(2));
 
-    if (SIMULATE) {
-      const demoEl = document.createElement('div');
-      demoEl.className = 'bus-status-chip demo-chip';
-      demoEl.innerHTML = '<span class="dot demo-dot"></span><span class="line-label">Demo</span>';
-      document.querySelector('.bus-chips-on-map').appendChild(demoEl);
-    }
-
-    // ── Simulation mode (waypoints trace real routes, used when no credentials) ──
-    const simWaypoints = {
-      1: [
-        [45.800505, 15.925867], [45.8005, 15.936], [45.8003, 15.946],
-        [45.799,    15.956   ], [45.797,  15.963], [45.794051, 15.969763],
-        [45.788,    15.971   ], [45.781,  15.975], [45.775,    15.979],
-        [45.771559, 15.981728], [45.775,  15.979], [45.781,    15.975],
-        [45.788,    15.971   ], [45.794051, 15.969763], [45.797, 15.963],
-        [45.799,    15.956   ], [45.8003, 15.946], [45.8005,   15.936],
-      ],
-      2: [
-        [45.806013, 16.034933], [45.803, 16.019], [45.800, 16.003],
-        [45.797,    15.988   ], [45.795, 15.977], [45.794051, 15.970013],
-        [45.795,    15.977   ], [45.797, 15.988], [45.800,    16.003],
-        [45.803,    16.019   ],
-      ],
-    };
-    const simStep = { 1: 0, 2: 4 };
-
-    function advanceSim(lineNum) {
-      const pts = simWaypoints[lineNum];
-      const [latitude, longitude] = pts[simStep[lineNum] % pts.length];
-      simStep[lineNum]++;
-      return { latitude, longitude, speed: 28 + Math.random() * 20 };
-    }
-
     // ── Live bus tracking ──────────────────────────────────────────
     async function fetchPosition(deviceId) {
-      if (SIMULATE) return advanceSim(deviceId === deviceId1 ? 1 : 2);
       const url = `${traccarUrl}/api/positions?deviceId=${deviceId}`;
-      console.log('[Traccar] fetching:', url);
       const res = await fetch(url, { headers: { Authorization: 'Bearer ' + apiToken } });
-      console.log('[Traccar] HTTP status:', res.status, res.statusText);
       if (!res.ok) {
-        console.log('[Traccar] HTTP error', res.status, res.statusText, 'deviceId:', deviceId);
+        console.warn('[Traccar] HTTP error', res.status, 'deviceId:', deviceId);
         return null;
       }
       const data = await res.json();
-      console.log('[Traccar] deviceId:', deviceId, 'positions response:', data);
       if (!data || data.length === 0) {
-        console.warn('[Traccar] No position for deviceId:', deviceId, '— device may not have reported yet');
+        console.warn('[Traccar] No position for deviceId:', deviceId);
+        return null;
       }
-      return data && data.length > 0 ? data[0] : null;
+      return data[0];
     }
 
     function setStatus(chip, textEl, text, isLive) {

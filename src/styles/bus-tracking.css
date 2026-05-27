@@ -250,25 +250,6 @@
     border-bottom-color: #1c1c1c;
 }
 
-/* === Demo chip === */
-.demo-chip {
-    cursor: default;
-    border-color: rgba(255, 149, 0, 0.4);
-}
-
-.demo-chip .line-label {
-    color: #ff9500;
-}
-
-.demo-dot {
-    background: #ff9500;
-    animation: demoPulse 1.4s ease-in-out infinite;
-}
-
-@keyframes demoPulse {
-    0%, 100% { opacity: 1; }
-    50%       { opacity: 0.3; }
-}
 
 /* === Fullscreen button === */
 .bus-fullscreen-btn {
