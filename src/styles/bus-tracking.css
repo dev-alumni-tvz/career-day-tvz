@@ -1,0 +1,371 @@
+/* === Page === */
+.bus-tracking-page {
+    height: 100vh;
+    overflow: hidden;
+    background: var(--black);
+    color: var(--white);
+    padding: 24px 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* === Header (mirrors schedule-page.css) === */
+.bus-tracking-header {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex-shrink: 0;
+    padding: 0 40px;
+}
+
+@media (max-width: 991px) {
+    .bus-tracking-header {
+        padding: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .bus-tracking-header {
+        padding: 10px;
+    }
+}
+
+.back-link {
+    color: var(--gray-medium);
+    text-decoration: none;
+    font-size: 14px;
+    font-family: var(--font-small);
+    font-weight: 500;
+    transition: color 0.2s ease;
+    width: fit-content;
+}
+
+.back-link:hover {
+    color: var(--primary-yellow);
+}
+
+
+/* === Chips on map (next to zoom) === */
+.leaflet-top.leaflet-left {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.bus-chips-on-map {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    padding: 10px 0 0 0;
+    position: relative;
+    z-index: 1000;
+    pointer-events: all;
+}
+
+.bus-chips-on-map .bus-status-chip {
+    pointer-events: all;
+}
+
+.bus-status-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    background: rgba(15, 11, 12, 0.88);
+    font-size: 13px;
+    font-family: var(--font-small);
+    font-weight: 500;
+    transition: border-color 0.3s ease, background 0.3s ease;
+    backdrop-filter: blur(6px);
+}
+
+.bus-status-chip .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.bus-status-chip .line-label {
+    font-family: var(--font-main);
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--white);
+}
+
+.bus-status-chip .status-text {
+    color: var(--gray-medium);
+}
+
+.bus-status-chip.live .status-text {
+    color: var(--white);
+}
+
+.bus-status-chip {
+    cursor: pointer;
+}
+
+.bus-status-chip.selected {
+    outline: 3px solid var(--primary-yellow);
+    outline-offset: -1px;
+    background: rgba(15, 11, 12, 0.95);
+}
+
+/* === Map wrapper === */
+.bus-map-wrapper {
+    flex: 1;
+    min-height: 0;
+    border-radius: 12px 12px 0 0;
+    overflow: hidden;
+    position: relative;
+}
+
+/* === Pre-tracking overlay === */
+.tracking-pending {
+    position: absolute;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(15, 11, 12, 0.72);
+    backdrop-filter: blur(4px);
+    pointer-events: all;
+}
+
+.tracking-pending-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    background: rgba(28, 28, 28, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 28px 36px;
+    text-align: center;
+    max-width: 300px;
+}
+
+.tracking-pending-icon {
+    font-size: 36px;
+    line-height: 1;
+}
+
+.tracking-pending-title {
+    font-family: var(--font-main);
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--white);
+    margin: 0;
+}
+
+.tracking-pending-sub {
+    font-family: var(--font-small);
+    font-size: 13px;
+    color: var(--gray-medium);
+    margin: 0;
+    line-height: 1.5;
+}
+
+.tracking-pending-timer {
+    font-family: var(--font-main);
+    font-weight: 700;
+    font-size: 32px;
+    color: var(--primary-yellow);
+    letter-spacing: 0.05em;
+    margin-top: 4px;
+}
+
+#bus-map {
+    width: 100%;
+    height: 100%;
+}
+
+/* === Leaflet dark theme overrides === */
+.leaflet-popup-content-wrapper {
+    background: #1c1c1c;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
+    color: var(--white);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.6);
+}
+
+.leaflet-popup-tip {
+    background: #1c1c1c;
+}
+
+.leaflet-popup-close-button {
+    color: #888 !important;
+}
+
+.leaflet-popup-close-button:hover {
+    color: var(--white) !important;
+}
+
+.leaflet-control-zoom a {
+    background: #1c1c1c !important;
+    color: var(--primary-yellow) !important;
+    border-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+.leaflet-control-zoom a:hover {
+    background: #2a2a2a !important;
+}
+
+.leaflet-control-attribution {
+    background: rgba(15, 11, 12, 0.7) !important;
+    color: #666 !important;
+    font-size: 10px !important;
+}
+
+.leaflet-control-attribution a {
+    color: #888 !important;
+}
+
+/* Ensure tooltips stay below controls */
+.leaflet-tooltip-pane { z-index: 650; }
+.leaflet-popup-pane   { z-index: 700; }
+
+/* === Permanent stop tooltips === */
+.leaflet-tooltip.bus-tooltip {
+    background: #1c1c1c;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
+    color: #fff;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.6);
+    padding: 8px 12px;
+    min-width: 150px;
+    white-space: normal;
+}
+
+.leaflet-tooltip.bus-tooltip.leaflet-tooltip-top::before {
+    border-top-color: #1c1c1c;
+}
+
+.leaflet-tooltip.bus-tooltip.leaflet-tooltip-bottom::before {
+    border-bottom-color: #1c1c1c;
+}
+
+/* === Demo chip === */
+.demo-chip {
+    cursor: default;
+    border-color: rgba(255, 149, 0, 0.4);
+}
+
+.demo-chip .line-label {
+    color: #ff9500;
+}
+
+.demo-dot {
+    background: #ff9500;
+    animation: demoPulse 1.4s ease-in-out infinite;
+}
+
+@keyframes demoPulse {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0.3; }
+}
+
+/* === Fullscreen button === */
+.bus-fullscreen-btn {
+    width: 34px;
+    height: 34px;
+    background: #1c1c1c;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--primary-yellow);
+    margin-top: 10px;
+    transition: background 0.2s;
+}
+
+.bus-fullscreen-btn:hover {
+    background: #2a2a2a;
+}
+
+/* === User location marker === */
+.user-loc-pin {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-loc-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #4285f4;
+    border: 2.5px solid #fff;
+    box-shadow: 0 0 0 0 rgba(66, 133, 244, 0.5);
+    animation: locPulse 2s ease-out infinite;
+}
+
+@keyframes locPulse {
+    0%   { box-shadow: 0 0 0 0   rgba(66, 133, 244, 0.5); }
+    70%  { box-shadow: 0 0 0 10px rgba(66, 133, 244, 0);   }
+    100% { box-shadow: 0 0 0 0   rgba(66, 133, 244, 0);    }
+}
+
+/* === Responsive === */
+@media (max-width: 991px) {
+    .bus-tracking-page {
+        padding: 16px 0 0;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .bus-tracking-page {
+        padding: 10px 0 0;
+        gap: 8px;
+        height: 100dvh;
+    }
+
+    .bus-tracking-header .header-text h2 {
+        font-size: var(--font-3xl);
+    }
+
+    .bus-map-wrapper {
+        border-radius: 8px 8px 0 0;
+    }
+
+    .bus-status-chip {
+        padding: 6px 10px;
+        gap: 6px;
+    }
+
+    .bus-status-chip .line-label {
+        font-size: 12px;
+    }
+
+    .bus-status-chip .status-text {
+        display: none;
+    }
+
+    .bus-chips-on-map {
+        gap: 6px;
+    }
+
+    /* Larger zoom controls */
+    .leaflet-control-zoom a {
+        width: 36px !important;
+        height: 36px !important;
+        line-height: 36px !important;
+        font-size: 18px !important;
+    }
+
+    /* Tooltip slightly bigger text on mobile */
+    .leaflet-tooltip.bus-tooltip {
+        font-size: 13px;
+        padding: 10px 14px;
+    }
+}
