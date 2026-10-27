@@ -21,9 +21,11 @@ Hero → Countdown → About → Info → WhatToExpect → Stats → Transport �
 
 All sections are individually toggled via feature flags in `src/data/config.ts`.
 
-**Pages** — `src/pages/schedule.astro` is a separate route (`/schedule`) for the CareerTalks talk schedule with table/cards views and department filtering. `src/pages/bus-tracking.astro` is a separate route (`/bus-tracking`) for the live GPS bus tracker — see **Bus Tracking** section below.
+**Pages** — `src/pages/schedule.astro` is a separate route (`/schedule`) for the CareerTalks talk schedule with table/cards views and department filtering.
 
-**Layout** — `src/layouts/BaseLayout.astro` wraps every page, injects global CSS, SEO/OG meta tags, JSON-LD Event schema, Google Fonts (Montserrat, Manrope, Inter), Vercel Analytics, and four vanilla JS scripts loaded via `is:inline`.
+> The `/bus-tracking` live GPS page was removed after the 2026 event (commit `cf6ae22`). The **Bus Tracking** section below is kept as a record of how it worked, should it be rebuilt — it does not describe code that currently exists.
+
+**Layout** — `src/layouts/BaseLayout.astro` wraps every page, injects global CSS, SEO/OG meta tags, JSON-LD Event schema, Google Fonts (Montserrat, Manrope, Inter), Vercel Analytics, an inline scroll-reveal guard script, and `scroll.js` + the Luma embed at the end of `<body>`.
 
 **Styles** — Three global CSS files, no CSS framework:
 
@@ -33,12 +35,15 @@ All sections are individually toggled via feature flags in `src/data/config.ts`.
 
 Key CSS variables defined in `:root`: `--primary-yellow: #EAC31B`, `--black: #0F0B0C`, `--padding-side-main`, `--padding-top-bottom`. Responsive layout is achieved by overriding these variables at breakpoints rather than duplicating rules.
 
-**JavaScript** — All JS lives in `public/javascript/` as plain scripts loaded inline (not bundled by Astro):
+**JavaScript** — All JS lives in `public/javascript/` as plain scripts loaded inline (not bundled by Astro). Only `scroll.js` is loaded on the homepage, at the end of `<body>`:
 
-- `count-down-timer.js` — counts down to `2026-05-27T11:00:00`
-- `scroll.js` — scroll-reveal logic for `.reveal` class elements
-- `carret-talks-overlay.js` — overlay behavior for CareerTalks section
-- `schedule.js` — schedule display (currently unused/commented out)
+- `scroll.js` — scroll-reveal logic for `.reveal` elements. Adds `reveal-ready` to `<html>` on load.
+- `schedule-page.js`, `schedule.js` — schedule page behaviour
+
+**Scroll-reveal guard** — `.reveal` / `.reveal-stagger` elements are hidden by CSS only while
+`<html>` carries the `js-reveal` class. An inline script in `BaseLayout.astro` adds that class and
+removes it again after 3s if `scroll.js` never sets `reveal-ready`, so a script failure cannot leave
+the page blank.
 
 **Images** — `src/assets/images/` holds SVGs and PNGs imported into components using Astro's `<Image>` component for optimisation. Background images (PNGs) live in `public/assets/bg-images/` and are referenced directly in CSS.
 
@@ -47,7 +52,7 @@ Key CSS variables defined in `:root`: `--primary-yellow: #EAC31B`, `--black: #0F
 ## Content notes
 
 - Site language is Croatian (`<html lang="hr">`); all visible copy is in Croatian
-- Event date is hardcoded in multiple places: `count-down-timer.js`, `BaseLayout.astro` JSON-LD, and component markup — update all when the date changes
+- Event date comes from `src/data/config.ts` (`eventDate`), which feeds the JSON-LD, the countdown and the hero `<h1>`. Some component markup still spells the date out literally — grep for the year when rolling over.
 - The Luma registration link (`https://luma.com/cd26`) appears in `Hero.astro` and `Footer.astro`
 - Partner logos are individual SVGs in `src/assets/images/partners/`
 

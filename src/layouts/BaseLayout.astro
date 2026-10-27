@@ -14,6 +14,21 @@ const endDate = config.eventEndDate.toISOString();
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<script is:inline>
+			// Scroll-reveal hides elements with CSS until scroll.js observes them.
+			// Only arm that hiding when JS is running, and unarm it if scroll.js
+			// never reports in — otherwise a failed script leaves the page blank.
+			(function () {
+				var root = document.documentElement;
+				root.classList.add('js-reveal');
+				setTimeout(function () {
+					if (!root.classList.contains('reveal-ready')) {
+						root.classList.remove('js-reveal');
+					}
+				}, 3000);
+			})();
+		</script>
 		<Analytics />
 		<title>{config.eventName} | Sajam karijera u Zagrebu</title>
 
