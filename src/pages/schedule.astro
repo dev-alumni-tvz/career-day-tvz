@@ -2,6 +2,13 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import '../styles/schedule-page.css';
 import { talks } from '../data/talks.ts';
+import { config } from '../data/config';
+
+const eventDateLabel = config.eventDate.toLocaleDateString('hr-HR', {
+	day: 'numeric',
+	month: 'long',
+	year: 'numeric',
+});
 
 function timeToMinutes(t: string) {
 	const [h, m] = t.split(':').map(Number);
@@ -29,7 +36,7 @@ for (let min = START + 10; min <= 990; min += 30) {
 
 <BaseLayout>
 	<main class="schedule-page">
-		<h1 class="visually-hidden">CareerTalks raspored — TVZ CareerDay 2026</h1>
+		<h1 class="visually-hidden">CareerTalks raspored — {config.eventName}</h1>
 		<div class="schedule-header">
 			<a
 				href="/#career-talks"
@@ -38,7 +45,7 @@ for (let min = START + 10; min <= 990; min += 30) {
 			>
 			<div class="header-text">
 				<h2><span>CareerTalks</span> Raspored</h2>
-				<p>27. svibnja 2026. · Dvorana Kornati, Zagreb</p>
+				<p>{eventDateLabel} · {config.venue}</p>
 			</div>
 		</div>
 

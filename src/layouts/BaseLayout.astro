@@ -32,7 +32,7 @@ const endDate = config.eventEndDate.toISOString();
 		<Analytics />
 		<title>{config.eventName} | Sajam karijera u Zagrebu</title>
 
-		<meta name="description" content="TVZ CareerDay 2026 okuplja studente i vodeće tvrtke. Prijavi se, upoznaj poslodavce, poslušaj CareerTalks i pronađi praksu ili posao." />
+		<meta name="description" content={`${config.eventName} okuplja studente i vodeće tvrtke. Prijavi se, upoznaj poslodavce, poslušaj CareerTalks i pronađi praksu ili posao.`} />
 		<link rel="canonical" href={`${config.siteUrl}/`} />
 		<meta name="author" content="TVZ CareerDay Team" />
 		<meta property="og:type" content="website" />
@@ -41,14 +41,14 @@ const endDate = config.eventEndDate.toISOString();
 		<meta property="og:title" content={config.eventName} />
 		<meta property="og:description" content="Sajam karijera TVZ-a: studenti, tvrtke, CareerTalks, prijave i poslovne prilike." />
 		<meta property="og:url" content={`${config.siteUrl}/`} />
-		<meta property="og:image" content={`${config.siteUrl}/assets/og/tvz-careerday-2026-og.jpg`} />
+		<meta property="og:image" content={`${config.siteUrl}${config.ogImage}`} />
 		<meta property="og:image:width" content="1200" />
 		<meta property="og:image:height" content="630" />
 
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:title" content={config.eventName} />
-		<meta name="twitter:description" content="Prijavi se i upoznaj poslodavce na TVZ CareerDay 2026." />
-		<meta name="twitter:image" content={`${config.siteUrl}/assets/og/tvz-careerday-2026-og.jpg`} />
+		<meta name="twitter:description" content={`Prijavi se i upoznaj poslodavce na ${config.eventName}.`} />
+		<meta name="twitter:image" content={`${config.siteUrl}${config.ogImage}`} />
 		<meta name="robots" content="index, follow" />
 
 		<meta name="geo.region" content="HR-21" />
@@ -68,8 +68,8 @@ const endDate = config.eventEndDate.toISOString();
 			"name": config.eventName,
 			"eventStatus": "https://schema.org/EventScheduled",
 			"eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
-			"description": "TVZ CareerDay 2026 okuplja studente i poslodavce kroz razgovore, prezentacije i prilike za praksu i posao.",
-			"image": [`${config.siteUrl}/assets/og/tvz-careerday-2026-og.jpg`],
+			"description": `${config.eventName} okuplja studente i poslodavce kroz razgovore, prezentacije i prilike za praksu i posao.`,
+			"image": [`${config.siteUrl}${config.ogImage}`],
 			"url": `${config.siteUrl}/`,
 			"startDate": startDate,
 			"endDate": endDate,

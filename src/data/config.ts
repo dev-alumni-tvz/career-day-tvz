@@ -1,15 +1,20 @@
 export const config = {
-	eventDate: new Date('2026-05-27T11:00:00'),
-	eventEndDate: new Date('2026-05-27T18:00:00'),
-	eventName: 'TVZ CareerDay 2026',
-	eventYear: 2026,
-	venue: 'Dvorana Kornati, Zagreb',
-	lumaLink: 'https://luma.com/cd26',
+	eventDate: new Date('2027-05-25T10:00:00'),
+	eventEndDate: new Date('2027-05-25T17:00:00'),
+	eventName: 'TVZ CareerDay 2027',
+	eventYear: 2027,
+	venue: 'Mozaik Event Centar, Zagreb',
+	venueAddress: 'Slavonska avenija 6/2, Zagreb',
+	venueShort: 'MEC',
+	lumaLink: 'https://luma.com/x1o78y1d',
 	siteUrl: 'https://careerday.tvz.hr',
+	// Social sharing preview. Still the 2026 artwork — swap the file and this
+	// path together when the 2027 version exists.
+	ogImage: '/assets/og/tvz-careerday-2026-og.jpg',
 	social: {
 		instagram: 'https://www.instagram.com/tvzcareerday/',
 		linkedin: 'https://www.linkedin.com/company/tvz-career-day/',
-		luma: 'https://luma.com/cd26',
+		luma: 'https://luma.com/x1o78y1d',
 	},
 	showCountdown: true,
 	showAbout: true,

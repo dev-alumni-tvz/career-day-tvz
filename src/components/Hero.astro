@@ -2,7 +2,7 @@
 import { Image } from 'astro:assets';
 import { config } from '../data/config';
 import Nav from '../components/Nav.astro';
-import heroImage from '../assets/images/career-2026-fix.svg';
+import heroImage from '../assets/images/career-2027-hero.svg';
 import lumaStar from '../assets/images/lumaStar.svg';
 
 const eventDateLabel = config.eventDate.toLocaleDateString('hr-HR', {
@@ -22,7 +22,7 @@ const eventDateLabel = config.eventDate.toLocaleDateString('hr-HR', {
 
 		<Image
 			src={heroImage}
-			alt="TVZ CareerDay 2026 datum i mjesto"
+			alt={`${config.eventName} — datum i mjesto`}
 			class="date-and-place hero-animate"
 			loading="eager"
 			fetchpriority="high"
