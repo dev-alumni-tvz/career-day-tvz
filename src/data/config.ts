@@ -8,9 +8,9 @@ export const config = {
 	venueShort: 'MEC',
 	lumaLink: 'https://luma.com/x1o78y1d',
 	siteUrl: 'https://careerday.tvz.hr',
-	// Social sharing preview. Still the 2026 artwork — swap the file and this
-	// path together when the 2027 version exists.
-	ogImage: '/assets/og/tvz-careerday-2026-og.jpg',
+	// Social sharing preview, 1200x630. Swap the file and this path together
+	// each year; og:image:width/height in BaseLayout assume those dimensions.
+	ogImage: '/assets/og/tvz-careerday-2027-og.jpg',
 	social: {
 		instagram: 'https://www.instagram.com/tvzcareerday/',
 		linkedin: 'https://www.linkedin.com/company/tvz-career-day/',
