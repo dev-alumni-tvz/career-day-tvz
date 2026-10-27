@@ -123,6 +123,7 @@ button:hover {
 .header .hero .date-and-place {
     width: 100%;
     height: 430px;
+    margin-bottom: 24px;
 }
 
 .hero-open {
@@ -1122,7 +1123,7 @@ footer {
 /* === Join Us === */
 
 .job-oportunity {
-    padding: 60px var(--padding-side-main);
+    padding: 140px var(--padding-side-main) 60px;
     display: flex;
     align-items: center;
     justify-content: center;

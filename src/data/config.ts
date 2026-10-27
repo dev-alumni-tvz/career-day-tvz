@@ -13,7 +13,7 @@ export const config = {
 	ogImage: '/assets/og/tvz-careerday-2027-og.jpg',
 	social: {
 		instagram: 'https://www.instagram.com/tvzcareerday/',
-		linkedin: 'https://www.linkedin.com/company/tvz-career-day/',
+		linkedin: 'https://www.linkedin.com/company/tvzcareerday/',
 		luma: 'https://luma.com/x1o78y1d',
 	},
 	showCountdown: true,
