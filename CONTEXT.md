@@ -11,9 +11,11 @@ The set of values that change every year and are shared across the site: event d
 A company participating in the career fair. Has a name, logo (SVG filename), website URL, and a tier. Logos live in `src/assets/images/partners/`. Managed in `src/data/partners.ts`.
 
 ### Partner Tier
-One of four values that determines how a partner is displayed:
+One of six values that determines how a partner is displayed:
 - `platinum` — large logo, displayed prominently above the grid
-- `grid` — standard logo in the partner grid
+- `gold` — standard logo in the "Zlatni partneri" grid
+- `silver` — standard logo in the "Silver partneri" grid
+- `other` — standard logo in the "Ostali partneri" grid
 - `strategic` — displayed in the bottom section as "Strateški partner"
 - `patron` — displayed in the bottom section as "Pod pokroviteljstvom"
 

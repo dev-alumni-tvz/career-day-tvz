@@ -4,16 +4,28 @@ import { config } from '../data/config';
 import Nav from '../components/Nav.astro';
 import heroImage from '../assets/images/career-2026-fix.svg';
 import lumaStar from '../assets/images/lumaStar.svg';
+
+const eventDateLabel = config.eventDate.toLocaleDateString('hr-HR', {
+	day: 'numeric',
+	month: 'long',
+	year: 'numeric',
+});
 ---
 
 <section class="header">
 	<Nav />
 
 	<div class="hero">
+		<h1 class="visually-hidden">
+			{config.eventName} — sajam karijera, {eventDateLabel}, {config.venue}
+		</h1>
+
 		<Image
 			src={heroImage}
 			alt="TVZ CareerDay 2026 datum i mjesto"
 			class="date-and-place hero-animate"
+			loading="eager"
+			fetchpriority="high"
 		/>
 
 		<a
