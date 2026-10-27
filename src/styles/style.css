@@ -123,6 +123,7 @@ button:hover {
 .header .hero .date-and-place {
     width: 100%;
     height: 430px;
+    margin-bottom: 24px;
 }
 
 .hero-open {
@@ -959,43 +960,16 @@ footer {
     margin-bottom: 16px;
     border-radius: 12px;
     overflow: hidden;
-    cursor: pointer;
 }
 
 .masonry-item img {
     width: 100%;
     display: block;
-    transition: transform 0.4s ease, filter 0.4s ease;
-}
-
-/* === Overlay === */
-.masonry-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.45);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity 0.35s ease;
-}
-
-.masonry-overlay svg {
-    transform: scale(0.8);
-    transition: transform 0.35s ease;
+    transition: transform 0.4s ease;
 }
 
 .masonry-item:hover img {
     transform: scale(1.05);
-    filter: brightness(0.85);
-}
-
-.masonry-item:hover .masonry-overlay {
-    opacity: 1;
-}
-
-.masonry-item:hover .masonry-overlay svg {
-    transform: scale(1);
 }
 
 /* === Reveal animation === */
@@ -1122,7 +1096,7 @@ footer {
 /* === Join Us === */
 
 .job-oportunity {
-    padding: 60px var(--padding-side-main);
+    padding: 140px var(--padding-side-main) 60px;
     display: flex;
     align-items: center;
     justify-content: center;
